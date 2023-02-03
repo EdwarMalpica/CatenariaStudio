@@ -10,7 +10,22 @@
     src: url("assets/font/GOGOIA-Regular.otf") format("opentype");
   }
   
+
 .backgroundGradient{
     height: 5000px;
     background: radial-gradient(80.7% 80.7% at 50% 50%, #086970 0%, rgba(19, 17, 17, 0) 100%);
+}
+
+.h-100 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.whiteText{
+    color: white;
+}
+
+.secondFont{
+    font-family: 'Quicksand';
 }
