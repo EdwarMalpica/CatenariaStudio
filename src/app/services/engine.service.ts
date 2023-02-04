@@ -13,7 +13,7 @@ export class EngineService implements OnDestroy {
   private light: THREE.AmbientLight;
 
   private cube: THREE.Mesh;
-  private model:THREE.Group;
+  private model:THREE.Object3D;
   private frameId:number;
 
   private loader:GLTFLoader;

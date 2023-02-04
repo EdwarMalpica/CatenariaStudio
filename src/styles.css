@@ -29,3 +29,15 @@
 .secondFont{
     font-family: 'Quicksand';
 }
+
+.btnPrimary{
+    border: none;
+    padding: 3% 8%;
+    border-radius: 10px;
+    background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
+
+}
+
+.btnPrimary:hover{
+    box-shadow: 0px 0px 20px #46EEFA;
+}

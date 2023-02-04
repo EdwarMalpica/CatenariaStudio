@@ -8,6 +8,9 @@ import { TitleComponent } from './components/home/title/title.component';
 import { HomeComponent } from './components/home/home.component';
 import { MisionComponent } from './components/home/mision/mision.component';
 import { EngineService } from './services/engine.service';
+import { ProyectsTitleComponent } from './components/home/proyects-title/proyects-title.component';
+import { SectionContentRightComponent } from './components/section-content-right/section-content-right.component';
+import { SectionContentLeftComponent } from './components/section-content-left/section-content-left.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { EngineService } from './services/engine.service';
     HeaderComponent,
     TitleComponent,
     HomeComponent,
-    MisionComponent
+    MisionComponent,
+    ProyectsTitleComponent,
+    SectionContentRightComponent,
+    SectionContentLeftComponent
   ],
   imports: [
     BrowserModule,
