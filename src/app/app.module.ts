@@ -11,6 +11,8 @@ import { EngineService } from './services/engine.service';
 import { ProyectsTitleComponent } from './components/home/proyects-title/proyects-title.component';
 import { SectionContentRightComponent } from './components/section-content-right/section-content-right.component';
 import { SectionContentLeftComponent } from './components/section-content-left/section-content-left.component';
+import { ServicesTitleComponent } from './components/home/services-title/services-title.component';
+import { MoreServicesComponent } from './components/home/more-services/more-services.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SectionContentLeftComponent } from './components/section-content-left/s
     MisionComponent,
     ProyectsTitleComponent,
     SectionContentRightComponent,
-    SectionContentLeftComponent
+    SectionContentLeftComponent,
+    ServicesTitleComponent,
+    MoreServicesComponent
   ],
   imports: [
     BrowserModule,
