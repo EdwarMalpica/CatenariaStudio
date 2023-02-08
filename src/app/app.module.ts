@@ -13,6 +13,7 @@ import { SectionContentRightComponent } from './components/section-content-right
 import { SectionContentLeftComponent } from './components/section-content-left/section-content-left.component';
 import { ServicesTitleComponent } from './components/home/services-title/services-title.component';
 import { MoreServicesComponent } from './components/home/more-services/more-services.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MoreServicesComponent } from './components/home/more-services/more-serv
     SectionContentRightComponent,
     SectionContentLeftComponent,
     ServicesTitleComponent,
-    MoreServicesComponent
+    MoreServicesComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
