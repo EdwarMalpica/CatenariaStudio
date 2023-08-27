@@ -14,6 +14,7 @@ import { SectionContentLeftComponent } from './components/section-content-left/s
 import { ServicesTitleComponent } from './components/home/services-title/services-title.component';
 import { MoreServicesComponent } from './components/home/more-services/more-services.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ContactoComponent } from './components/contacto/contacto.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [EngineService],
   bootstrap: [AppComponent]
