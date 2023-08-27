@@ -1,4 +1,4 @@
-name: Tst
+name: Pipeline Deploy
 
 on:
   push:
