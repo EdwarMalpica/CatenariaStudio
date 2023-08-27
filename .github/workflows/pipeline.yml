@@ -1,0 +1,21 @@
+name: Tst
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del proyecto
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Instalar Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Instalar Dependencias
+        run: npm install
