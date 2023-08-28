@@ -26,8 +26,8 @@ jobs:
       - name: Despliegue en la instancia aws
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
           SOURCE: "dist/catenaria-studio/"
-          REMOTE_HOST: "ec2-184-72-198-157.compute-1.amazonaws.com"
+          REMOTE_HOST: "184.72.198.157"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html/catenaria-studio/"
