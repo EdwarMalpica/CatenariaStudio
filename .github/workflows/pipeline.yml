@@ -9,25 +9,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout del proyecto
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Instalar Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      - name: Instalar Dependencias
-        run: npm install --no-audit --no-fount --no-optional
-      - name: Instalar Angular
-        run: npm install -g @angular/cli > /dev/null
-      - name: Compilar el proyecto
-        run: npm run build:prod
-      - name: Despliegue en la instancia aws
-        uses: easingthemes/ssh-deploy@main
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "dist/catenaria-studio/"
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: "/var/www/html/catenaria-studio/"
+      - name: Conectar a aws ec2
+        run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@184.70.198.157
