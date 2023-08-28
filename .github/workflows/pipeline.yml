@@ -18,4 +18,14 @@ jobs:
         with:
           node-version: '18'
       - name: Instalar Dependencias
-        run: npm install
+        run: npm install --no-audit --no-fount --no-optional
+      - name: Instalar Angular
+        run: npm install -g @angular/cli > /dev/null
+      - name: Despliegue en la instancia aws
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
+          SOURCE: "dist/catenaria-studio/"
+          REMOTE_HOST: "184-72-198-157"
+          REMOTE_USER: "ubuntu"
+          TARGET: "/var/www/html/catenaria-studio/"
