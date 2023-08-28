@@ -14,6 +14,7 @@ jobs:
             mkdir -p ~/.ssh
             echo ${{ env.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
+            cat ~/.ssh/id_rsa
             ssh-keyscan -H 184.70.198.157 >> ~/.ssh/known_hosts
             chmod 644 ~/.ssh/known_hosts
             ssh -i ~/.ssh/id_rsa ubuntu@184.70.198.157 "echo Conexión exitosa"
