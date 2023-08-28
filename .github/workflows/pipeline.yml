@@ -9,12 +9,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Conectar a aws ec2
+      - uses: actions/checkout@v2
+      - name: Deploy in EC2
+        env:
+            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
+            HOSTNAME : ${{ secrets.HOST_DNS  }}
+            USER_NAME : ${{ secrets.USERNAME  }}
+
         run: |
-          mkdir -p ~/.ssh
-          echo ${{ env.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa.pem
-          chmod 700 ~/.ssh/id_rsa.pem
-          echo ~/.ssh/id_rsa.pem
-          ssh-keyscan -H 184.70.198.157 >> ~/.ssh/known_hosts
-          chmod 777 ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_rsa.pem ubuntu@184.70.198.157 "echo Conexión exitosa"
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
