@@ -19,3 +19,9 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+      - name: Despliegue en la instancia aws
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: private_key
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
