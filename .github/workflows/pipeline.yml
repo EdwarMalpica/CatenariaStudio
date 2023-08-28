@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Conectar a aws ec2
         run: |
-          mkdir -p ~/.ssh
-          echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 184.70.198.157 >> ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_rsa ubuntu@184.70.198.157 "echo Conexión exitosa"
+            mkdir -p ~/.ssh
+            echo ${{ variables.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            ssh-keyscan -H 184.70.198.157 >> ~/.ssh/known_hosts
+            chmod 644 ~/.ssh/known_hosts
+            ssh -i ~/.ssh/id_rsa ubuntu@184.70.198.157 "echo Conexión exitosa"
