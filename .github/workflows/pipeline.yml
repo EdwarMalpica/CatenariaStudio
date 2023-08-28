@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Conectar a aws ec2
-        run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@184.70.198.157
+        run: ssh -i ${{secrets.SSH_PRIVATE_KEY}} ubuntu@184.70.198.157
