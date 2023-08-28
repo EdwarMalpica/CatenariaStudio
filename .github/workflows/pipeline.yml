@@ -24,7 +24,7 @@ jobs:
       - name: Compilar el proyecto
         run: npm run build:prod
       - name: Despliegue en la instancia aws
-        uses: easingthemes/ssh-deploy@v2.1.5
+        uses: easingthemes/ssh-deploy@v4
         with:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
           SOURCE: "dist/catenaria-studio/"
