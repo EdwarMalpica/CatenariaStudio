@@ -7,28 +7,28 @@ on:
 
 jobs:
   release:
-    needs: deploy
+    # needs: deploy
     runs-on: prod
     steps:
     - name: copiar carpeta dist
-      run: scp -r dist/ /var/www/
+      run: pwd
 
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Instalar Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-      - name: Instalar Dependencias
-        run: npm install --no-audit --no-fount --no-optional
-      - name: Instalar Angular
-        run: npm install -g @angular/cli > /dev/null
-      - name: Compilar el proyecto
-        run: npm run build:prod
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Instalar Node
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '18'
+  #     - name: Instalar Dependencias
+  #       run: npm install --no-audit --no-fount --no-optional
+  #     - name: Instalar Angular
+  #       run: npm install -g @angular/cli > /dev/null
+  #     - name: Compilar el proyecto
+  #       run: npm run build:prod
 
       # - name: Despliegue en la instancia aws
       #   uses: easingthemes/ssh-deploy@main
