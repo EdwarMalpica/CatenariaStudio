@@ -29,7 +29,7 @@ export class EngineService implements OnDestroy {
 
 
   public createScene(canvas:ElementRef<HTMLCanvasElement>){
-    
+
     this.canvas = canvas.nativeElement;
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
@@ -44,7 +44,7 @@ export class EngineService implements OnDestroy {
     );
     this.camera.position.z = 5;
     this.scene.add(this.camera);
-  
+
     this.light = new THREE.AmbientLight(0x404040);
     this.light.position.z= 10;
     this.scene.add(this.light);
@@ -52,15 +52,15 @@ export class EngineService implements OnDestroy {
 
     this.loader =  new GLTFLoader();
 
-    this.loader.load('assets/model/modelGirl.glb',gltf=>  {
+    this.loader.load('assets/model/modelGirl.glb',(gltf:any)=>  {
       this.model = gltf.scene;
       this.scene.add( this.model );
       this.renderer.render( this.scene, this.camera);
-    
-    }, undefined, function ( error ) {
-    
+
+    }, undefined, function ( error:any ) {
+
       console.error( error );
-    
+
     } );
     //const geometry = new THREE.BoxGeometry(2,2,2);
     //const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
@@ -79,7 +79,7 @@ export class EngineService implements OnDestroy {
         });
       }
     });
-    
+
   }
 
   public render(){

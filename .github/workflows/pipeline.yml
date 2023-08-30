@@ -1,33 +1,38 @@
-name: Pipeline Deploy
+# name: Pipeline Deploy
 
-on:
-  push:
-    branches:
-      - "main"
+# on:
+#   push:
+#     branches:
+#       - "main"
 
-jobs:
-  release:
-    runs-on: prod
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: Instalar Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
-    - name: Instalar Dependencias
-      run: npm install --no-audit --no-fount --no-optional
-    - name: Instalar Angular
-      run: npm install -g @angular/cli > /dev/null
-    - name: Compilar el proyecto
-      run: npm run build:prod
-    - name: copiar carpeta dist
-      run: scp -r dist/ /var/www/html
+# jobs:
+#   release:
+#     needs: deploy
+#     runs-on: prod
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2
+#       with:
+#         fetch-depth: 0
+#     - name: copiar carpeta dist
+#       run: pwd
 
-
-
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+#       - name: Instalar Node
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '18'
+#       - name: Instalar Dependencias
+#         run: npm install --no-audit --no-fount --no-optional
+#       - name: Instalar Angular
+#         run: npm install -g @angular/cli > /dev/null
+#       - name: Compilar el proyecto
+#         run: npm run build:prod
 
       # - name: Despliegue en la instancia aws
       #   uses: easingthemes/ssh-deploy@main
