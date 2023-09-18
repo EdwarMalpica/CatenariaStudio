@@ -1,0 +1,14 @@
+/* Simplificado CSS para cambiar el fondo a blanco */
+.bs-datepicker-container .bs-datepicker-head {
+    background-color: white !important;
+  }
+  
+  .bs-datepicker-container .bs-datepicker-head * {
+    color: black !important;
+  }
+  
+  /* Cambia el padding del body */
+  body {
+    padding: 30px !important;
+  }
+  
