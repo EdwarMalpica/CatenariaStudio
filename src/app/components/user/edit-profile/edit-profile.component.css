@@ -41,8 +41,6 @@
     padding-bottom: 200px;
 }
 
-
-
 .title_gap_container{
     display: flex;
 }
@@ -57,6 +55,7 @@
     width: 50%;
     height: 500px;
     margin-top: 30px;    
+    
 }
 
 .item_form{
@@ -73,6 +72,21 @@
     row-gap: 20px;
     column-gap: 10px;
     width: 100%;
+    justify-items: center; 
+
+}
+
+.calendar_container{
+    width: 40%;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+
 }
 
 .title_form_container{
@@ -113,6 +127,24 @@
     border-color: darkgray;
     height: 50px;
     width: 100%;
+    color: black;
+    font-family: 'Bahiana', cursive;
+    font-size: 25px;
+    text-align: center;
+}
+
+.text_gap_email{
+    background-color: gray;
+}
+
+.button_section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+
+
 }
 
 /* Estilos para tamaños de pantalla pequeños (móviles) */

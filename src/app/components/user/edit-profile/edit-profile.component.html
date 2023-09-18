@@ -20,9 +20,9 @@
       <div  class="item_form">
         <div class="title_gap_container">
             <h2 class="title_gap_form">Nombre</h2>
-            <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit">
+            <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit" >
         </div>
-        <input type="text" class="text_gap"/>
+        <input type="text" class="text_gap" placeholder= {{profile_data_example.nombre}}/> 
       </div>
 
       <div class="item_form">
@@ -30,7 +30,7 @@
             <h2 class="title_gap_form">Apellido </h2>
             <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit">
         </div>
-        <input type="text" class="text_gap"/>
+        <input type="text" class="text_gap" placeholder= {{profile_data_example.apellido}}/>
       </div>
 
       <div class="item_form"> 
@@ -38,25 +38,36 @@
             <h2 class="title_gap_form">Teléfono</h2>
             <img src="./assets/img/Proyect1/edit_logo.png"  class="logo_edit" >
         </div>
-        <input type="text" class="text_gap"/>
+        <input type="text" class="text_gap" placeholder= {{profile_data_example.telefono}}/>
       </div>
 
       <div class="item_form">
         <div class="title_gap_container">
             <h2 class="title_gap_form">Email</h2>
-            <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit">
         </div>
-        <input type="text" class="text_gap"/>
+        <input type="text" class="text_gap" disabled placeholder= {{profile_data_example.email}}/>
       </div>
 
       <div class="item_form">
+
+        
+      </div>
+    </form>
+    <div class="container">
+
+      <div class="calendar_container item_form">
         <div class="title_gap_container">
-            <h2 class="title_gap_form">Fecha Nacimiento:</h2>
-            <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit">
+          <h2 class="title_gap_form">Fecha Nacimiento:</h2>
+          <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit">
         </div>
         <app-calendar></app-calendar>
       </div>
-    </form>
+    </div>
+
+    <div class="button_section">
+        <button style="background-color: transparent; border: none;"> <img src="./assets/img/Proyect1/save_btn.png"></button>
+        <button style="background-color: transparent; border: none;">  <img src="./assets/img/Proyect1/cancel_btn.png"></button>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
