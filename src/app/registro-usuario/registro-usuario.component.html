@@ -1,0 +1,52 @@
+<!-- <p>registro-usuario works!</p> -->
+<img src="/assets/img/header.png" alt="" width="100%" height="250px">
+
+<div class="container card-header">
+
+  <div class="row inputs justify-content-md-center" >
+    <h2 class="text-center title">Registro de Usuario</h2>
+    <div class="col-6 md-4 ">
+      <form>
+        <div class="form-group space">
+          <label for="nombre" class="subtitle">Nombre:</label>
+          <input type="text" id="nombre" class="form-control subtitle" [(ngModel)]="nombre" name="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-group space">
+          <label for="apellido" class="subtitle">Apellido:</label>
+          <input type="text" id="apellido" class="form-control  subtitle" [(ngModel)]="apellido" name="apellido" placeholder="Apellido">
+        </div>
+        <div class="form-group space">
+          <label for="telefono" class="subtitle">Teléfono:</label>
+          <input type="tel" id="telefono" class="form-control  subtitle" [(ngModel)]="telefono" name="telefono" placeholder="3000000000">
+        </div>
+
+      </form>
+    </div>
+
+    <div class="col-6 md-4">
+      <div class="form-group space">
+        <div class="form-group space">
+          <label for="email" class="subtitle">Email:</label>
+          <input type="email" id="email@mail.com" class="form-control subtitle" [(ngModel)]="email" name="email" placeholder="E-mail">
+        </div>
+        <label for="fechaNacimiento" class="subtitle">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" class="form-control subtitle " [(ngModel)]="fechaNacimiento" name="16/16/1655">
+      </div>
+      <div class="form-group space">
+        <label for="imagen" class="subtitle">Seleccionar Imagen:</label>
+        <input type="file" id="imagen" class=" subtitle" (change)="onFileSelected($event)">
+      </div>
+      <img [src]="imagenSeleccionada" alt="Imagen seleccionada" class="img-fluid imageSelected " *ngIf="imagenSeleccionada" width="150px">
+    </div>
+    <div class="row justify-content-md-center btn-container">
+      <div class="col-md-auto buttons">
+        <button class="btn btn-primary btn-acept btn-css " (click)="registrarUsuario()">Aceptar</button>
+        <button class="btn btn-secondary btn-cancel btn-css" (click)="cancelarRegistro()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+

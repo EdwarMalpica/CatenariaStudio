@@ -1,0 +1,45 @@
+<div>
+  <!-- <img src="https://marketplace.canva.com/EAE3FLcDu44/1/0/1600w/canva-brown-wood-minimalist-profile-linkedin-banner-lSpD-gJNF7A.jpg" alt="" width="100%" height="250px"> -->
+  <img src="/assets/img/header.png" alt="" width="100%" height="250px">
+</div>
+<div class="container">
+
+  <div class="row justify-content-center">
+
+    <!-- <div>
+      <img class="profile" src="https://cdn.icon-icons.com/icons2/35/PNG/512/admin_person_user_man_2839.png" alt="" width="150px">
+    </div> -->
+    <div class="col-md-6">
+      <div class="container_form">
+
+        <div class="card-header text-center ">
+          <div class="title">LOGIN </div>
+          <div class="card-body">
+            <form (submit)="login()">
+              <div class="subtitle">
+                <div class="inputs">
+                  <p>Por favor, introduzca su usuario y contraseña</p>
+                  <div class="form-group input-space">
+                    <input type="text" id="username" class="form-control" [(ngModel)]="username" name="username" required
+                      placeholder="Usuario">
+                  </div>
+                  <div class="form-group input-space">
+
+                    <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password"
+                      required placeholder="Contraseña">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="options d-flex justify-content-center gap-5">
+                <a href="" class="password">¿Has olvidado tu contraseña?</a>
+                <a href="" class="register">Registrate</a>
+              </div>
+              <button type="submit" class="btn btn-primary btn-login">Login </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
