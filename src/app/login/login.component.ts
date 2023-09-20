@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+// import { AppState } from '../app.state'; // Define AppState según la aplicación
+// import * as AuthActions from '../auth/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +17,7 @@ export class LoginComponent {
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router){
+      //, private store: Store<AppState>
 
   }
 
@@ -25,6 +29,8 @@ export class LoginComponent {
     } else {
       alert('Credenciales incorrectas');
     }
+
+
   }
 
 }

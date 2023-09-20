@@ -15,6 +15,9 @@ export class RegistroUsuarioComponent {
   fechaNacimiento: Date | null = null;
   imagen: File | null = null;
   imagenSeleccionada: string | ArrayBuffer | null = null;
+  aceptarTerminos: boolean = false;
+  username: string = '';
+  password: string = '';
 
 
   constructor(private http: HttpClient) {}
@@ -58,6 +61,7 @@ export class RegistroUsuarioComponent {
     this.imagen = null; // También puedes establecerla como null
     this.imagenSeleccionada = null; // Limpiar la imagen seleccionada si la estás mostrando en el componente
     console.log('Registro cancelado');
+
   }
 
 
@@ -77,6 +81,28 @@ export class RegistroUsuarioComponent {
       reader.readAsDataURL(file);
     }
   }
+
+  iniciarSesion() {
+    if (this.aceptarTerminos && this.username && this.username) {
+      // Realiza una solicitud de inicio de sesión al servidor aquí.
+      // Puedes usar servicios de Angular para hacer la solicitud HTTP.
+      // this.authService.iniciarSesion(this.username, this.username).subscribe(
+        // (response) => {
+          // Manejar la respuesta del servidor, como guardar el token de autenticación.
+        // },
+        // (error) => {
+          // Manejar errores, como mostrar un mensaje de error al usuario.
+        // }
+      // );
+    } else {
+      // Muestra un mensaje de error o toma alguna acción si los datos no son válidos o los términos no se aceptan.
+    }
+     //this.store.dispatch(AuthActions.login({ username: this.username, password: this.password }));
+  }
+
+
+
+
 }
 
 
