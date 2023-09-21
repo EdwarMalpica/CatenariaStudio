@@ -6,9 +6,11 @@
 }
 
 @font-face {
-    font-family: Gogoia;
-    src: url("assets/font/GOGOIA-Regular.otf") format("opentype");
-  }
+  font-family: Gogoia;
+  src: url("assets/font/GOGOIA-Regular.otf") format("opentype");
+  font-family: Bahiana;
+  src: url("assets/font/Bahiana-Regular.ttf") format("opentype");
+}
   
 
 .backgroundGradient{
