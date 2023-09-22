@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-// import { AppState } from '../app.state'; // Define AppState según la aplicación
-// import * as AuthActions from '../auth/auth.actions';
+import { AuthService } from '../services/auth/auth.service';
+import { Credential } from '../models/auth/credential';
 
 @Component({
   selector: 'app-login',
@@ -16,18 +15,26 @@ export class LoginComponent {
   password: string = '';
 
   constructor(private activatedRoute: ActivatedRoute,
-    private router: Router){
-      //, private store: Store<AppState>
+    private router: Router,
+    private authService: AuthService) {
 
   }
 
   login() {
-
-    // se verifican las credenciales de la API
+    // Lógica de autenticación
+    // se verifican las credenciales de la API  
     if (this.username === 'usuario' && this.password === 'contraseña') {
-      alert('Inicio de sesión exitoso');
+      this.authService.login(new Credential(this.username, this.password)).subscribe((dataResponse: any) => {
+        console.log(dataResponse);
+        alert('Inicio de sesión exitoso')
+      },
+        (error: any) => {
+          console.log(error);
+          alert('Credenciales incorrectas');
+        }
+      );
     } else {
-      alert('Credenciales incorrectas');
+      alert('Complete los campos');
     }
 
 
