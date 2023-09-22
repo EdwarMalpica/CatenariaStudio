@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'terminos', component: TerminosComponent },
   { path : 'edit', component : EditProfileComponent},
+  { path: 'user', loadChildren: () => import('./components/user/user.module').then(m => m.UserModule) },
   //Lo deja por defecto
   { path: '', redirectTo: '/home', pathMatch: 'full' }
-
 ];
 
 @NgModule({
