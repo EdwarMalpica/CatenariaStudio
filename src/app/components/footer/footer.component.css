@@ -21,7 +21,7 @@
 
 .titleFont{
     height: 36px;
-    font-family: 'Gogoia';
+    font-family: 'bahiana',sans-serif;
     font-size: 80px;
     color: white;
 }
@@ -36,7 +36,7 @@
 }
 
 .subTitleFont{
-    font-family: 'Gogoia';
+    font-family: 'bahiana',sans-serif;
     font-size: 30px;
     margin-top: 15px;
     text-align: center;
@@ -73,13 +73,13 @@
     grid-template-rows: 2fr;
 }
 .item_list{
-    font-family: 'Gogoia';
+    font-family: 'bahiana',sans-serif;
     font-size: 25px;
     text-align: center;
     color: white;
 }
 .item_list2{
-    font-family: 'Gogoia';
+    font-family: 'bahiana',sans-serif;
     font-size: 35px;
     color: white;
 }
@@ -88,7 +88,7 @@
     display: grid;
     grid-template-columns: repeat(5,1fr);
     justify-items: center;
-    font-family: 'Gogoia';
+    font-family: 'bahiana',sans-serif;
     font-size: 35px;
     color: white;
 
