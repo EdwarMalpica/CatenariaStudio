@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth/auth.service';
+import { User } from '../models/auth/user';
+import { Route, Router } from '@angular/router';
 // import { AuthActions } from '@angular./auth.actions'
 
 @Component({
@@ -13,42 +15,33 @@ export class RegistroUsuarioComponent {
   apellido: string = '';
   telefono: string = '';
   email: string = '';
-  fechaNacimiento: Date | null = null;
+  fechaNacimiento: string ='' ;
   imagen: File | null = null;
   imagenSeleccionada: string | ArrayBuffer | null = null;
   aceptarTerminos: boolean = false;
   username: string = '';
   password: string = '';
-  authService: any;
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private auth:AuthService, private route:Router) {}
 
 
   registrarUsuario() {
     // Acceder a los valores de los campos del formulario
-    const nuevoUsuario = {
-      nombre: this.nombre,
-      apellido: this.apellido,
-      telefono: this.telefono,
-      email: this.email,
-      fechaNacimiento: this.fechaNacimiento,
-      imagen: this.imagen, // URL de la imagen o un objeto de archivo revisar backend
-
-    };
-    console.log('Usuario registrado');
+    const user = new User(this.nombre+this.apellido,this.email, this.password, this.nombre, this.apellido,this.fechaNacimiento, this.telefono);
+    console.log(user);
 
     // Lógica para enviar los datos del nuevoUsuario al servidor
     // solicitud HTTP POST para registrar al usuario en tu backend
     // Realizar una solicitud HTTP POST al servidor
-  this.http.post('URL_DEL_BACKEND/registrarUsuario', nuevoUsuario).subscribe(
+  this.auth.register(user).subscribe(
     (response) => {
-      // Manejar la respuesta del servidor "mostrar un mensaje de éxito"
-      console.log('Usuario registrado con éxito', response);
+      alert('Usuario registrado con éxito: \n'+response);
+      this.route.navigate(['/home']);
     },
     (error) => {
       // Manejar errores "mostrar un mensaje de error"
-      console.error('Error al registrar usuario', error);
+      alert('Error al registrar usuario'+ error);
     }
   );
   }
@@ -59,7 +52,7 @@ export class RegistroUsuarioComponent {
     this.apellido = '';
     this.telefono = '';
     this.email = '';
-    this.fechaNacimiento = null; //
+    this.fechaNacimiento = ""; //
     this.imagen = null; //
     this.imagenSeleccionada = null; //
     console.log('Registro cancelado');
@@ -84,33 +77,7 @@ export class RegistroUsuarioComponent {
     }
   }
 
-  iniciarSesion() {
-    if (this.aceptarTerminos && this.username && this.password) {
-      // Realizar una solicitud de inicio de sesión al servidor aquí
-      // Puedes utilizar el servicio HttpClient de Angular para hacer la solicitud HTTP
-      const datosInicioSesion = {
-        username: this.username,
-        password: this.password
-      };
 
-      this.http.post('URL_DEL_BACKEND/iniciarSesion', datosInicioSesion).subscribe(
-        (response: any) => {
-          // Manejo la respuesta del servidor, como guardar el token de autenticación
-          const token = response.token; // si el servidor devuelve un token
-          //redirigir al usuario o almacenar el token en el almacenamiento local
-        },
-        (error) => {
-
-          console.error('Error al iniciar sesión', error);
-
-        }
-      );
-    } else {
-
-      console.error('Datos de inicio de sesión no válidos');
-
-    }
-  }
 
 
 

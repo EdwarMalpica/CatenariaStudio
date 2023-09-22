@@ -24,7 +24,8 @@ export class LoginComponent {
     if (this.username && this.password) {
       this.authService.login(new Credential(this.username, this.password)).subscribe((dataResponse: any) => {
         console.log(dataResponse);
-        alert('Inicio de sesión exitoso')
+        alert('Inicio de sesión exitoso');
+        this.router.navigate(['/home']);
       },
         (error: any) => {
           console.log(error);

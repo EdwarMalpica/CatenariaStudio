@@ -1,12 +1,15 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 .container_form {
-  /* background: linear-gradient(45deg, #000000 40%, #086970);
-  background-position: center; */
+   background: linear-gradient(45deg, #000000 40%, #086970);
+  background-position: center;
   position: relative;
   height: 500px;
   width: 100%;
-
+}
+.container{
+  width: 100%;
+  margin: 0;
 }
 
 
