@@ -25,7 +25,7 @@ export class LoginComponent {
       this.authService.login(new Credential(this.username, this.password)).subscribe((dataResponse: any) => {
         console.log(dataResponse);
         alert('Inicio de sesión exitoso');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/edit']);
       },
         (error: any) => {
           console.log(error);
