@@ -1,6 +1,6 @@
 .footer_container{
     width: 100%;
-    background: radial-gradient(126.75% 126.75% at 50% 50%, #032c2f 0%, rgba(30, 33, 69, 1) 100%);
+     background: radial-gradient(126.75% 126.75% at 50% 50%, #032c2f 0%, rgb(0, 0, 0) 100%);
     position: relative;
 
 }
@@ -111,7 +111,7 @@
     }
     .item_list2{
         font-size: 15px;
-        
+
     }
     .social_icons_container{
         font-size: 15px;
@@ -125,4 +125,4 @@
         font-size: 20px;
     }
   }
-  
+
