@@ -111,5 +111,8 @@
       }
     }
   },
-  "defaultProject": "CatenariaStudio"
+  "defaultProject": "CatenariaStudio",
+  "cli": {
+    "analytics": "dcbf1729-58f6-48ad-99b3-eef800c316ef"
+  }
 }

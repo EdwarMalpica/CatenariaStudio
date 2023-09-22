@@ -16,6 +16,9 @@ import { MoreServicesComponent } from './components/home/more-services/more-serv
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from '../auth.reducer';
+import { AuthComponent } from './components/auth/auth.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +31,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SectionContentLeftComponent,
     ServicesTitleComponent,
     MoreServicesComponent,
-    ContactoComponent
+    ContactoComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot({ auth: authReducer }),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [EngineService],
   bootstrap: [AppComponent]
