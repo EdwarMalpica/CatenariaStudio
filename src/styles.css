@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 .bodyDark{
     position: relative;
-    height: 7544px;
+    height: 100%;
     background: #000000;
 }
 
@@ -9,10 +9,10 @@
     font-family: Gogoia;
     src: url("assets/font/GOGOIA-Regular.otf") format("opentype");
   }
-  
+
 
 .backgroundGradient{
-    height: 5000px;
+    height: 100%;
     background: radial-gradient(80.7% 80.7% at 50% 50%, #086970 0%, rgba(19, 17, 17, 0) 100%);
 }
 

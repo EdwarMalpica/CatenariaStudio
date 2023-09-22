@@ -24,6 +24,20 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 
 defineLocale('es', esLocale);
 
+import { LoginComponent } from './login/login.component';
+import { TerminosComponent } from './terminos/terminos.component';
+import { FormsModule } from '@angular/forms'; //
+
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+
+// import { authReducer } from './auth/auth.reducer';
+// import { AuthEffects } from './auth/auth.effects';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,13 +53,21 @@ defineLocale('es', esLocale);
     ContactoComponent,
     EditProfileComponent,
     FooterComponent,
-    CalendarComponent
+    CalendarComponent,
+    LoginComponent,
+    RegistroUsuarioComponent,
+    TerminosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    FormsModule,
+    HttpClientModule,
+    // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
+    // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
+
   ],
   providers: [EngineService],
   bootstrap: [AppComponent]
