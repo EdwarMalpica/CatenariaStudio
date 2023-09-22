@@ -11,13 +11,13 @@ export class TerminosComponent {
 
   constructor(private router: Router) {}
 
-  continuar() {
-    if (this.aceptarTerminos) {
-      // Redirige al usuario a la siguiente vista
-      this.router.navigate(['/registrar-usuario']); // Cambia 'terminos' por la ruta de tu siguiente vista 'registrar-usuario'
-    } else {
-      console.log('Por favor, acepta los términos y condiciones para continuar.');
-    }
-  }
+  // continuar() {
+  //   if (this.aceptarTerminos) {
+  //     // Redirige al usuario a la siguiente vista
+  //     this.router.navigate(['/registrar-usuario']); // Cambia 'terminos' por la ruta de tu siguiente vista 'registrar-usuario'
+  //   } else {
+  //     console.log('Por favor, acepta los términos y condiciones para continuar.');
+  //   }
+  // }
 
 }
