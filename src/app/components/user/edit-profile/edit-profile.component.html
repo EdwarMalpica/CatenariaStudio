@@ -1,0 +1,74 @@
+
+<div class="header_container">
+
+    <div class="img_header_edit">
+        <img src="./assets/img/Proyect1/edit_header2.png" class="img_header" />
+    </div>
+
+    <div class="profile_photo">
+        <img src="./assets/img/Proyect1/profile_photo_example1.png" class="img_profile">
+        <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit_photo" >
+    </div>
+
+</div>
+
+<div class="body">
+
+    <div class="main_container">
+        <h1 class="title_form">Editar Datos</h1>
+    <form class="form_container">
+
+      <div  class="item_form">
+        <div class="title_gap_container">
+            <h2 class="title_gap_form">Nombre</h2>
+            <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit" >
+        </div>
+        <input type="text" class="text_gap" placeholder= {{profile_data_example.nombre}}/>
+      </div>
+
+      <div class="item_form">
+        <div class="title_gap_container">
+            <h2 class="title_gap_form">Apellido </h2>
+            <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit">
+        </div>
+        <input type="text" class="text_gap" placeholder= {{profile_data_example.apellido}}/>
+      </div>
+
+      <div class="item_form">
+        <div class="title_gap_container">
+            <h2 class="title_gap_form">Teléfono</h2>
+            <img src="./assets/img/Proyect1/edit_logo.png"  class="logo_edit" >
+        </div>
+        <input type="text" class="text_gap" placeholder= {{profile_data_example.telefono}}/>
+      </div>
+
+      <div class="item_form">
+        <div class="title_gap_container">
+            <h2 class="title_gap_form">Email</h2>
+        </div>
+        <input type="text" class="text_gap" disabled placeholder= {{profile_data_example.email}}/>
+      </div>
+
+      <div class="item_form">
+
+
+      </div>
+    </form>
+    <div class="container">
+
+      <div class="calendar_container item_form">
+        <div class="title_gap_container">
+          <h2 class="title_gap_form">Fecha Nacimiento:</h2>
+          <img src="./assets/img/Proyect1/edit_logo.png" class="logo_edit">
+        </div>
+        <app-calendar></app-calendar>
+      </div>
+    </div>
+
+    <div class="button_section">
+        <button style="background-color: transparent; border: none;"> <img src="./assets/img/Proyect1/save_btn.png"></button>
+        <button style="background-color: transparent; border: none;">  <img src="./assets/img/Proyect1/cancel_btn.png"></button>
+    </div>
+  </div>
+</div>
+
