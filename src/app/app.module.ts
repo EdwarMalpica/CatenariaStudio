@@ -15,7 +15,9 @@ import { ServicesTitleComponent } from './components/home/services-title/service
 import { MoreServicesComponent } from './components/home/more-services/more-services.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { LoginComponent } from './login/login.component';
+import { TerminosComponent } from './terminos/terminos.component';
 import { FormsModule } from '@angular/forms'; //
 
 import { HttpClientModule } from '@angular/common/http';
@@ -25,6 +27,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 
 // import { authReducer } from './auth/auth.reducer';
 // import { AuthEffects } from './auth/auth.effects';
+
 
 
 @NgModule({
@@ -42,17 +45,17 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     ContactoComponent,
     LoginComponent,
     RegistroUsuarioComponent,
-
+    TerminosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    BrowserModule,
     HttpClientModule,
     // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
+
   ],
   providers: [EngineService],
   bootstrap: [AppComponent]
