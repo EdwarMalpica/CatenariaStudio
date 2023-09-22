@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth/auth.service';
+import { User } from '../models/auth/user';
+import { Credential } from '../models/auth/credential';
 // import { AuthActions } from '@angular./auth.actions'
 
 @Component({
@@ -19,38 +21,30 @@ export class RegistroUsuarioComponent {
   aceptarTerminos: boolean = false;
   username: string = '';
   password: string = '';
-  authService: any;
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private authService: AuthService) { }
 
 
   registrarUsuario() {
     // Acceder a los valores de los campos del formulario
-    const nuevoUsuario = {
-      nombre: this.nombre,
-      apellido: this.apellido,
-      telefono: this.telefono,
-      email: this.email,
-      fechaNacimiento: this.fechaNacimiento,
-      imagen: this.imagen, // URL de la imagen o un objeto de archivo revisar backend
-
-    };
+    const nuevoUsuario = new User(this.username, this.email, this.password, this.nombre,
+      this.apellido, '', this.telefono);
     console.log('Usuario registrado');
 
     // Lógica para enviar los datos del nuevoUsuario al servidor
     // solicitud HTTP POST para registrar al usuario en tu backend
     // Realizar una solicitud HTTP POST al servidor
-  this.http.post('URL_DEL_BACKEND/registrarUsuario', nuevoUsuario).subscribe(
-    (response) => {
-      // Manejar la respuesta del servidor "mostrar un mensaje de éxito"
-      console.log('Usuario registrado con éxito', response);
-    },
-    (error) => {
-      // Manejar errores "mostrar un mensaje de error"
-      console.error('Error al registrar usuario', error);
-    }
-  );
+    this.authService.register(nuevoUsuario).subscribe(
+      (response) => {
+        // Manejar la respuesta del servidor "mostrar un mensaje de éxito"
+        console.log('Usuario registrado con éxito', response);
+      },
+      (error) => {
+        // Manejar errores "mostrar un mensaje de error"
+        console.error('Error al registrar usuario', error);
+      }
+    );
   }
 
   cancelarRegistro() {
@@ -86,14 +80,7 @@ export class RegistroUsuarioComponent {
 
   iniciarSesion() {
     if (this.aceptarTerminos && this.username && this.password) {
-      // Realizar una solicitud de inicio de sesión al servidor aquí
-      // Puedes utilizar el servicio HttpClient de Angular para hacer la solicitud HTTP
-      const datosInicioSesion = {
-        username: this.username,
-        password: this.password
-      };
-
-      this.http.post('URL_DEL_BACKEND/iniciarSesion', datosInicioSesion).subscribe(
+      this.authService.login(new Credential(this.username, this.password)).subscribe(
         (response: any) => {
           // Manejo la respuesta del servidor, como guardar el token de autenticación
           const token = response.token; // si el servidor devuelve un token
@@ -106,15 +93,9 @@ export class RegistroUsuarioComponent {
         }
       );
     } else {
-
       console.error('Datos de inicio de sesión no válidos');
-
     }
   }
-
-
-
-
 }
 
 
