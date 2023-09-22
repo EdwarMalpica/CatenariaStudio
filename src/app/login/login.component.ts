@@ -23,7 +23,7 @@ export class LoginComponent {
   login() {
     // Lógica de autenticación
     // se verifican las credenciales de la API  
-    if (this.username === 'usuario' && this.password === 'contraseña') {
+    if (this.username && this.password) {
       this.authService.login(new Credential(this.username, this.password)).subscribe((dataResponse: any) => {
         console.log(dataResponse);
         alert('Inicio de sesión exitoso')
