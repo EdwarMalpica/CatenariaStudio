@@ -15,6 +15,8 @@ import { ServicesTitleComponent } from './components/home/services-title/service
 import { MoreServicesComponent } from './components/home/more-services/more-services.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TerminosComponent } from './terminos/terminos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SectionContentLeftComponent,
     ServicesTitleComponent,
     MoreServicesComponent,
-    ContactoComponent
+    ContactoComponent,
+    TerminosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [EngineService],
   bootstrap: [AppComponent]
