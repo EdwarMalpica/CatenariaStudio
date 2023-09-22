@@ -15,6 +15,28 @@ import { ServicesTitleComponent } from './components/home/services-title/service
 import { MoreServicesComponent } from './components/home/more-services/more-services.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { esLocale } from 'ngx-bootstrap/locale';
+import { CalendarComponent } from './components/calendar/calendar.component';
+
+defineLocale('es', esLocale);
+
+import { LoginComponent } from './login/login.component';
+import { TerminosComponent } from './terminos/terminos.component';
+import { FormsModule } from '@angular/forms'; //
+
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+
+// import { authReducer } from './auth/auth.reducer';
+// import { AuthEffects } from './auth/auth.effects';
+
+
 
 @NgModule({
   declarations: [
@@ -28,12 +50,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SectionContentLeftComponent,
     ServicesTitleComponent,
     MoreServicesComponent,
-    ContactoComponent
+    ContactoComponent,
+    EditProfileComponent,
+    FooterComponent,
+    CalendarComponent,
+    LoginComponent,
+    RegistroUsuarioComponent,
+    TerminosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    FormsModule,
+    HttpClientModule,
+    // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
+    // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
+
   ],
   providers: [EngineService],
   bootstrap: [AppComponent]

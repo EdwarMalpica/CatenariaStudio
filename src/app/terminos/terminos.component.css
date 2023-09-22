@@ -1,0 +1,76 @@
+
+.container {
+  color: white; /* Texto en color blanco */
+  font-family: Arial, sans-serif; /* Fuente del texto */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px; /* Espacio inferior después del título */
+}
+
+
+p {
+  font-size: 18px; /* Tamaño de fuente para los párrafos */
+  line-height: 1.5; /* Espaciado entre líneas */
+  margin-bottom: 15px; /* Espacio inferior después de cada párrafo */
+  text-align: left;
+}
+
+ol {
+  list-style-type: decimal; /* Numeración decimal */
+  padding-left: 30px; /* Espaciado izquierdo de la lista */
+}
+
+li {
+  margin-bottom: 10px; /* Espacio inferior entre elementos de la lista */
+  text-align: left;
+}
+
+.article{
+  width: 50%;
+  margin: 0 auto; /* Configura los márgenes izquierdo y derecho a 'auto' */
+
+  padding: 20px;
+  text-align: center;
+}
+
+.scrollable-div {
+  /* border: 1px solid #ccc;  */
+  padding: 10px; /* Relleno interior del div (ajusta según tus necesidades) */
+}
+
+.btn{
+  background: linear-gradient(
+    -45deg,
+    rgba(8, 105, 112, 1) 0%,
+    rgba(0, 161, 181, 1) 100%
+  );
+  border-radius: 10px;
+  padding: 13px 20px 13px 20px;
+  align-items: center;
+  justify-content: center;
+  width: 141px;
+  height: 47px;
+  box-shadow: 0px 0px 20px 0px rgba(70, 238, 250, 1);
+  color: var(--_13, #ffffff);
+
+  font: 700 20px "Quicksand", sans-serif;
+
+
+}
+
+.options{
+  margin-top: 40px;/*Sólo para componentes*/
+
+}
+
+.checkbox-container{
+  margin-top: 40px;
+
+}
+
+
