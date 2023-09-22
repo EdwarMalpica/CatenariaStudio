@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+// import { AuthActions } from '@angular./auth.actions'
 
 @Component({
   selector: 'app-registro-usuario',
@@ -18,6 +19,7 @@ export class RegistroUsuarioComponent {
   aceptarTerminos: boolean = false;
   username: string = '';
   password: string = '';
+  authService: any;
 
 
   constructor(private http: HttpClient) {}
@@ -57,9 +59,9 @@ export class RegistroUsuarioComponent {
     this.apellido = '';
     this.telefono = '';
     this.email = '';
-    this.fechaNacimiento = null; // Si es una fecha, puedes establecerla como null o un valor predeterminado
-    this.imagen = null; // También puedes establecerla como null
-    this.imagenSeleccionada = null; // Limpiar la imagen seleccionada si la estás mostrando en el componente
+    this.fechaNacimiento = null; //
+    this.imagen = null; //
+    this.imagenSeleccionada = null; //
     console.log('Registro cancelado');
 
   }
@@ -67,7 +69,7 @@ export class RegistroUsuarioComponent {
 
 
   onFileSelected(event: any) {
-    // Manejar la selección de archivo (imagen)
+
     this.imagen = event.target.files[0];
     const file: File = event.target.files[0];
 
@@ -83,21 +85,31 @@ export class RegistroUsuarioComponent {
   }
 
   iniciarSesion() {
-    if (this.aceptarTerminos && this.username && this.username) {
-      // Realiza una solicitud de inicio de sesión al servidor aquí.
-      // Puedes usar servicios de Angular para hacer la solicitud HTTP.
-      // this.authService.iniciarSesion(this.username, this.username).subscribe(
-        // (response) => {
-          // Manejar la respuesta del servidor, como guardar el token de autenticación.
-        // },
-        // (error) => {
-          // Manejar errores, como mostrar un mensaje de error al usuario.
-        // }
-      // );
+    if (this.aceptarTerminos && this.username && this.password) {
+      // Realizar una solicitud de inicio de sesión al servidor aquí
+      // Puedes utilizar el servicio HttpClient de Angular para hacer la solicitud HTTP
+      const datosInicioSesion = {
+        username: this.username,
+        password: this.password
+      };
+
+      this.http.post('URL_DEL_BACKEND/iniciarSesion', datosInicioSesion).subscribe(
+        (response: any) => {
+          // Manejo la respuesta del servidor, como guardar el token de autenticación
+          const token = response.token; // si el servidor devuelve un token
+          //redirigir al usuario o almacenar el token en el almacenamiento local
+        },
+        (error) => {
+
+          console.error('Error al iniciar sesión', error);
+
+        }
+      );
     } else {
-      // Muestra un mensaje de error o toma alguna acción si los datos no son válidos o los términos no se aceptan.
+
+      console.error('Datos de inicio de sesión no válidos');
+
     }
-     //this.store.dispatch(AuthActions.login({ username: this.username, password: this.password }));
   }
 
 
