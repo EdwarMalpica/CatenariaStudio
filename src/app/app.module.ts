@@ -27,14 +27,12 @@ import { EffectsModule } from '@ngrx/effects';
 
 
 
-import { StoreModule } from '@ngrx/store';
+
 import { authReducer } from '../auth.reducer';
 import { AuthComponent } from './components/auth/auth.component';
-import { LoginComponent } from './login/login.component';
+
 import { TerminosComponent } from './terminos/terminos.component';
-import { FormsModule } from '@angular/forms'; //
-import { HttpClientModule } from '@angular/common/http';
-import { EffectsModule } from '@ngrx/effects';
+
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 
 // import { authReducer } from './auth/auth.reducer';
