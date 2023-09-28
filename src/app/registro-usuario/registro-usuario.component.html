@@ -1,7 +1,7 @@
 <!-- <p>registro-usuario works!</p> -->
 <img src="/assets/img/header.png" alt="" width="100%" height="250px">
 
-<div class="container card-header">
+<div class=" card-header py-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h2 class="text-center title">Registro de Usuario</h2>
@@ -42,6 +42,11 @@
               <label for="fechaNacimiento" class="subtitle">Fecha de Nacimiento:</label>
               <input type="date" id="fechaNacimiento" class="form-control subtitle " [(ngModel)]="fechaNacimiento"
                 name="16/16/1655">
+            </div>
+            <div class="form-group space">
+              <label for="password" class="subtitle">Contraseña:</label>
+              <input type="password" id="password" class="form-control subtitle " [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+                >
             </div>
           </div>
         </div>
