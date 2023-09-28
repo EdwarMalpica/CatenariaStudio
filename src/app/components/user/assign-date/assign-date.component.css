@@ -1,0 +1,67 @@
+.img_header {
+  width: 100%;
+  border: none;
+}
+
+.title_form {
+  color: white;
+  font-size: 60px;
+  display: flex;
+  margin-top: 10vh;
+  line-height: 0.8;
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 200px;
+  background: linear-gradient(45deg, #000000 40%, #086970 );
+}
+
+.input-details{
+    height:30vh;
+    width:80vh;
+}
+
+h1, h2, a {
+  color: white;
+  font-family: 'Quicksand'
+}
+
+h2{
+    font-size:24px;
+}
+
+.date-hour{
+    display:flex;
+}
+
+.btn-date {
+  border-radius: 5px;
+  background: linear-gradient(#08697000, #00A1B5);
+  background: linear-gradient(315deg, rgba(8, 105, 112, 0.00) -0.12%, #00A1B5 99.88%);
+  color: #fff;
+}
+
+.btn-layout {
+  display: flex;
+  width: 180px;
+  padding: 13px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+h1 {
+  font-family: 'Bahiana';
+  font-size: 26px;
+}
+
+  input::-webkit-input-placeholder {
+    color: black;
+    font-family: 'Bahiana';
+  }
