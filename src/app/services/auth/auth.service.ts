@@ -6,7 +6,7 @@ import { User } from "../../models/auth/user";
 import { URL_ENDPOINT_HOST_AUTH } from "../../utils/constants";
 
 @Injectable({ providedIn: 'root' })
-export class AuthService {  
+export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(credential: Credential): Observable<string> {
@@ -16,24 +16,24 @@ export class AuthService {
         catchError(this.handleError));
   }
 
-  register(user: User): Observable<string> {
-    return this.http.post<string>(URL_ENDPOINT_HOST_AUTH + 'register',
-      JSON.stringify(user)).pipe(tap(response => console.log(response)),
-        catchError(this.handleError));
+  // register(user: User): Observable<string> {
+  //   return this.http.post<string>(URL_ENDPOINT_HOST_AUTH + 'register',
+  //     JSON.stringify(user)).pipe(tap(response => console.log(response)),
+  //       catchError(this.handleError));
 
-    return this.http
-      .post<string>(
-        'http://localhost:8000/api/auth/login',
-        {
-          email: credential.email,
-          password: credential.password,
-        }
-      )
-      .pipe(
-        tap((response) => console.log(response)),
-        catchError(this.handleError)
-      );
-  }
+  //   return this.http
+  //     .post<string>(
+  //       'http://localhost:8000/api/auth/login',
+  //       {
+  //         email: credential.email,
+  //         password: credential.password,
+  //       }
+  //     )
+  //     .pipe(
+  //       tap((response) => console.log(response)),
+  //       catchError(this.handleError)
+  //     );
+  // }
 
   register(user: User): Observable<string> {
     return this.http
