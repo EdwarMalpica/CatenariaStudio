@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { TerminosComponent } from './terminos/terminos.component';
+import { HorarioComponent } from './horario/horario.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path : 'edit', component : EditProfileComponent},
   { path: 'user', loadChildren: () => import('./components/user/user.module').then(m => m.UserModule) },
   //Lo deja por defecto
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'horarios', component: HorarioComponent },
 ];
 
 @NgModule({

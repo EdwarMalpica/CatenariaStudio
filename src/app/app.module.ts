@@ -33,9 +33,13 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
+import { HorarioComponent } from './horario/horario.component';
 
 // import { authReducer } from './auth/auth.reducer';
 // import { AuthEffects } from './auth/auth.effects';
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -58,6 +62,7 @@ import { UserModule } from './components/user/user.module';
     LoginComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
+    HorarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,8 +72,8 @@ import { UserModule } from './components/user/user.module';
     FormsModule,
     HttpClientModule,
     UserModule,
-    // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
-    // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
+    MatIconModule,
+    MatChipsModule
   ],
   providers: [EngineService],
   bootstrap: [AppComponent],
