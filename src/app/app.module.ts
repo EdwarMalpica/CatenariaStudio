@@ -21,32 +21,17 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { esLocale } from 'ngx-bootstrap/locale';
 import { CalendarComponent } from './components/calendar/calendar.component';
-
 defineLocale('es', esLocale);
-
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms'; //
-
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-
-// import { authReducer } from './auth/auth.reducer';
-// import { AuthEffects } from './auth/auth.effects';
-
-
-
-
-import { authReducer } from '../auth.reducer';
 import { AuthComponent } from './components/auth/auth.component';
-
 import { TerminosComponent } from './terminos/terminos.component';
-
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
+import { authReducer } from './store/reducers/auth.reducer';
 
-// import { authReducer } from './auth/auth.reducer';
-// import { AuthEffects } from './auth/auth.effects';
 
 
 
@@ -77,7 +62,6 @@ import { UserModule } from './components/user/user.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({ auth: authReducer }),
-    StoreModule.forRoot({}, {}),
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
