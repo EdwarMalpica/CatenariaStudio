@@ -7,13 +7,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 
+
+
 export class HorariosService {
+
+  private api: string = 'http://127.0.0.1:8000/api/horarios';
 
   constructor(private http: HttpClient) {
 
   }
 
   public getSchedule(): Observable<HorariosResponse>{
-    return this.http.get<HorariosResponse>('http://127.0.0.1:8000/api/horarios');
+    return this.http.get<HorariosResponse>(this.api);
   }
 }
