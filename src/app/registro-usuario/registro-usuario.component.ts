@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { User } from '../models/auth/user';
 import { Credential } from '../models/auth/credential';
+import { Route, Router } from '@angular/router';
+
 // import { AuthActions } from '@angular./auth.actions'
 
 @Component({
@@ -15,7 +17,7 @@ export class RegistroUsuarioComponent {
   apellido: string = '';
   telefono: string = '';
   email: string = '';
-  fechaNacimiento: Date | null = null;
+  fechaNacimiento: string ='' ;
   imagen: File | null = null;
   imagenSeleccionada: string | ArrayBuffer | null = null;
   aceptarTerminos: boolean = false;
@@ -23,7 +25,7 @@ export class RegistroUsuarioComponent {
   password: string = '';
 
 
-  constructor(private authService: AuthService) { }
+  constructor(private auth:AuthService, private route:Router) {}
 
 
   registrarUsuario() {
@@ -31,20 +33,20 @@ export class RegistroUsuarioComponent {
     const nuevoUsuario = new User(this.username, this.email, this.password, this.nombre,
       this.apellido, '', this.telefono);
     console.log('Usuario registrado');
-
     // Lógica para enviar los datos del nuevoUsuario al servidor
     // solicitud HTTP POST para registrar al usuario en tu backend
     // Realizar una solicitud HTTP POST al servidor
-    this.authService.register(nuevoUsuario).subscribe(
-      (response) => {
-        // Manejar la respuesta del servidor "mostrar un mensaje de éxito"
-        console.log('Usuario registrado con éxito', response);
-      },
-      (error) => {
-        // Manejar errores "mostrar un mensaje de error"
-        console.error('Error al registrar usuario', error);
-      }
-    );
+
+  this.auth.register(user).subscribe(
+    (response) => {
+      alert('Usuario registrado con éxito: \n'+response);
+      this.route.navigate(['/home']);
+    },
+    (error) => {
+      // Manejar errores "mostrar un mensaje de error"
+      alert('Error al registrar usuario'+ error);
+    }
+  );
   }
 
   cancelarRegistro() {
@@ -53,7 +55,7 @@ export class RegistroUsuarioComponent {
     this.apellido = '';
     this.telefono = '';
     this.email = '';
-    this.fechaNacimiento = null; //
+    this.fechaNacimiento = ""; //
     this.imagen = null; //
     this.imagenSeleccionada = null; //
     console.log('Registro cancelado');
@@ -96,6 +98,7 @@ export class RegistroUsuarioComponent {
       console.error('Datos de inicio de sesión no válidos');
     }
   }
+
 }
 
 

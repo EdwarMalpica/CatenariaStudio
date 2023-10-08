@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import { UserModule } from './components/user/user.module';
 
 // import { authReducer } from './auth/auth.reducer';
 // import { AuthEffects } from './auth/auth.effects';
@@ -56,7 +57,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     CalendarComponent,
     LoginComponent,
     RegistroUsuarioComponent,
-    TerminosComponent
+    TerminosComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,11 +66,11 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
+    UserModule,
     // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
-
   ],
   providers: [EngineService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
