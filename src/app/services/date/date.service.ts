@@ -10,6 +10,9 @@ export class DateService {
   constructor(private http: HttpClient) { }
 
   assignDate(date: Date): Observable<string> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.getToken()}`,
+    });
     return this.http
       .post<string>(
         'http://localhost:8000/api/citas',
@@ -17,7 +20,8 @@ export class DateService {
           fecha_cita: date.date_date,
           mensaje: date.message,
           estado_cita_id: date.date_status_id
-        }
+        },
+        { headers }
       )
       .pipe(
         tap((response) => console.log(response)),
