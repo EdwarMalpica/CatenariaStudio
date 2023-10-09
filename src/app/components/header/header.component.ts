@@ -25,4 +25,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/registro-usuario']);
   }
 
+  // toHorarios() {
+  //   this.router.navigate(['/horarios']);
+  // }
 }

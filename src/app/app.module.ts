@@ -30,7 +30,11 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 import { authReducer } from './store/reducers/auth.reducer';
+import { HorarioComponent } from './horario/horario.component';
 
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -53,6 +57,7 @@ import { authReducer } from './store/reducers/auth.reducer';
     LoginComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
+    HorarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +70,8 @@ import { authReducer } from './store/reducers/auth.reducer';
     UserModule,
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
 
+    MatIconModule,
+    MatChipsModule
   ],
   providers: [EngineService],
   bootstrap: [AppComponent],

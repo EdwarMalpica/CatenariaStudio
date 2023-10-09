@@ -5,8 +5,11 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { TerminosComponent } from './terminos/terminos.component';
+import { HorarioComponent } from './horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,7 +29,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   //Lo deja por defecto
+  {path:'verify_email', component:CheckMailComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'horarios', component: HorarioComponent },
 ];
 
 @NgModule({
