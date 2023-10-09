@@ -9,15 +9,16 @@ import { Cita } from '../../../models/date/cita';
   templateUrl: './view-dates.component.html',
   styleUrls: ['./view-dates.component.css']
 })
-export class ViewDatesComponent implements OnInit{
+export class ViewDatesComponent implements OnInit {
   citas: Cita[] = [];
   editedDate: Cita = new Cita();
   isEditModalOpen: boolean = false;
+  isDeleteModalOpen: boolean = false;
+  deleteDateId: number = 0;
 
-
-    ngOnInit(): void {
-      this.fetchAllDates();
-    }
+  ngOnInit(): void {
+    this.fetchAllDates();
+  }
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -30,12 +31,12 @@ export class ViewDatesComponent implements OnInit{
       if (dataResponse.citas) {
         this.citas = dataResponse.citas;
       }
-      },
-        (error: any) => {
-          console.log(error);
-          alert('Credenciales incorrectas');
-        }
-      );
+    },
+      (error: any) => {
+        console.log(error);
+        alert('Credenciales incorrectas');
+      }
+    );
   }
 
   openEditModal(cita: Cita) {
@@ -44,7 +45,7 @@ export class ViewDatesComponent implements OnInit{
   }
 
   saveDateChanges() {
-    this.isEditModalOpen = false; 
+    this.isEditModalOpen = false;
     this.dateService.updateDate(this.editedDate).subscribe((dataResponse: any) => {
       if (dataResponse.citas) {
         this.citas = dataResponse.citas;
@@ -62,6 +63,25 @@ export class ViewDatesComponent implements OnInit{
   }
 
   onDelete(id: number) {
+    this.isDeleteModalOpen = true;
+    this.deleteDateId = id;
+  }
 
+  closeDeleteModal() {
+    this.isDeleteModalOpen = false;
+  }
+
+  deleteDate() {
+    this.isDeleteModalOpen = false;
+    this.dateService.deleteDate(this.deleteDateId).subscribe((dataResponse: any) => {
+      if (dataResponse.citas) {
+        this.citas = dataResponse.citas;
+      }
+    },
+      (error: any) => {
+        console.log(error);
+        alert('Credenciales incorrectas');
+      }
+    );
   }
 }

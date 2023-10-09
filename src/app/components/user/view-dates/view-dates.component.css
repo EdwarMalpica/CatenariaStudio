@@ -66,6 +66,10 @@ input::-webkit-input-placeholder {
   font-family: 'Bahiana';
 }
 
+.input-details {
+  height: 30vh;
+  width: 80vh;
+}
 
 /* Estilo del modal */
 .modal {
@@ -88,7 +92,7 @@ input::-webkit-input-placeholder {
 
 /* Estilo del modal card (parte interior del modal) */
 .modal-card {
-  max-width: 600px; /* Ancho máximo del modal card */
+  max-width: 100%; /* Ancho máximo del modal card */
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -115,3 +119,38 @@ input::-webkit-input-placeholder {
   .modal-card-foot button {
     margin-left: 10px;
   }
+
+.is-success {
+  border-radius: 5px;
+  background: linear-gradient(#08697000, #00A1B5);
+  background: linear-gradient(315deg, rgba(8, 105, 112, 0.00) -0.12%, #00A1B5 99.88%);
+  color: #fff;
+}
+
+.btn-accept {
+  align-items: center;
+  padding: 8px 27px;
+  font-size: 16px;
+  gap: 12px;
+  background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
+  /* sombra */
+  box-shadow: 0px 0px 20px #46EEFA;
+  border-radius: 5px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  color: #FFFFFF;
+}
+
+.btn-delete {
+  align-items: center;
+  padding: 8px 27px;
+  font-size: 16px;
+  gap: 12px;
+  background: linear-gradient(315deg, #FF0A0A -0.12%, #010B0D 99.88%);
+  /* sombra */
+  box-shadow: 0px 0px 20px #46EEFA;
+  border-radius: 5px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  color: #FFFFFF;
+}

@@ -69,6 +69,20 @@ export class DateService {
       );
   }
 
+  deleteDate(id: number) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.getToken()}`,
+    });
+    return this.http
+      .delete<string>(
+        'http://localhost:8000/api/citas/' + id,
+        { headers }
+      )
+      .pipe(
+        tap((response) => console.log(response)),
+        catchError(this.handleError)
+      );
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
