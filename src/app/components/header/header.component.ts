@@ -17,4 +17,7 @@ export class HeaderComponent implements OnInit {
   toResgistro() {
     this.router.navigate(['/registro-usuario']);
   }
+  // toHorarios() {
+  //   this.router.navigate(['/horarios']);
+  // }
 }
