@@ -23,6 +23,23 @@ export class DateService {
       );
   }
 
+  updateDate(date: Date) {
+    return this.http
+      .post<string>(
+        'http://localhost:8000/api/citas/update',
+        {
+          id:date.date_status_id,
+          fecha_cita: date.date_date,
+          mensaje: date.message,
+          estado_cita_id: date.date_status_id
+        }
+      )
+      .pipe(
+        tap((response) => console.log(response)),
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('Ocurrio un error: ', error)
