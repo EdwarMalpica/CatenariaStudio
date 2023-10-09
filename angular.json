@@ -27,10 +27,9 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
-
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -99,7 +98,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -113,7 +112,6 @@
   },
   "defaultProject": "CatenariaStudio",
   "cli": {
-    "analytics": "b05d4c45-888b-42f3-84a4-3bb8bc230d4f"
-
+    "analytics": "dcbf1729-58f6-48ad-99b3-eef800c316ef"
   }
 }

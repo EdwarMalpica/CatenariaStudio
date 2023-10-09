@@ -1,31 +1,30 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, tap, throwError } from "rxjs";
-import { Credential } from "../../models/auth/credential";
 import { User } from "../../models/auth/user";
+import { URL_ENDPOINT_HOST } from "../../utils/constants";
+import { Store } from "@ngrx/store";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private store:Store<any>) {
+      this.isAuthenticated = this.store.select(state => state.auth.isAuthenticated);
+  }
 
-  login(credential: Credential): Observable<string> {
-    return this.http
-      .post<string>(
-        'http://localhost:8000/api/auth/login',
-        {
-          email: credential.email,
-          password: credential.password,
-        }
-      )
-      .pipe(
-        tap((response) => console.log(response)),
-        catchError(this.handleError)
-      );
+  isAuthenticated: Observable<boolean> = new Observable<boolean>();
+  user: User | null = null;
+  token: string | null = null;
+
+  login(data:any): Observable<string> {
+    return this.http.post<string>(URL_ENDPOINT_HOST + 'auth/login',
+      data);
   }
 
   register(user: User): Observable<string> {
     return this.http
-      .post<string>('http://localhost:8000/api/auth/register', {
+      .post<string>(URL_ENDPOINT_HOST +'auth/register', {
         name: user.name,
         email: user.email,
         password: user.password,
@@ -33,17 +32,11 @@ export class AuthService {
         apellidos: user.apellidos,
         fecha_nacimiento: user.fecha_nacimiento,
         numero_telefonico: user.password,
-      })
-      .pipe(
-        tap((response) => console.log(response)),
-        catchError(this.handleError)
-      );
+      });
   }
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.error('Ocurrio un error: ', error)
-    }
-    return throwError(error)
+
+
+  logout() {
   }
 }
