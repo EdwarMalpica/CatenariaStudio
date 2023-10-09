@@ -69,7 +69,6 @@ import {MatChipsModule} from '@angular/material/chips';
     HttpClientModule,
     UserModule,
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
-
     MatIconModule,
     MatChipsModule
   ],

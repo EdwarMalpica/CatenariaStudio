@@ -7,6 +7,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import { TerminosComponent } from './terminos/terminos.component';
 import { HorarioComponent } from './horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
+import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'terminos', component: TerminosComponent },
+  { path : 'view-dates', component : ViewDatesComponent},
   { path: 'edit', component: EditProfileComponent, canActivate: [AuthGuard] },
   {
     path: 'assign-date',
