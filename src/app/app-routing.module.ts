@@ -7,6 +7,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import { TerminosComponent } from './terminos/terminos.component';
 import { HorarioComponent } from './horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
+import { AuthGuard } from './guards/auth.guard';
 import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
 
 
@@ -15,9 +16,18 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'terminos', component: TerminosComponent },
-  { path : 'edit', component : EditProfileComponent},
-  { path : 'assign-date', component : AssignDateComponent},
-  { path: 'user', loadChildren: () => import('./components/user/user.module').then(m => m.UserModule) },
+  { path: 'edit', component: EditProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'assign-date',
+    component: AssignDateComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./components/user/user.module').then((m) => m.UserModule),
+    canActivate: [AuthGuard],
+  },
   //Lo deja por defecto
   {path:'verify_email', component:CheckMailComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,5 +41,6 @@ const routes: Routes = [
 
 
 export class AppRoutingModule {
+
 }
 
