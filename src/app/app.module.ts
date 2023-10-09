@@ -26,12 +26,10 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { AuthComponent } from './components/auth/auth.component';
 import { TerminosComponent } from './terminos/terminos.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 import { authReducer } from './store/reducers/auth.reducer';
-
 
 
 
@@ -49,7 +47,6 @@ import { authReducer } from './store/reducers/auth.reducer';
     ServicesTitleComponent,
     MoreServicesComponent,
     ContactoComponent,
-    AuthComponent,
     EditProfileComponent,
     FooterComponent,
     CalendarComponent,
@@ -66,9 +63,7 @@ import { authReducer } from './store/reducers/auth.reducer';
     FormsModule,
     HttpClientModule,
     UserModule,
-    // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
-
 
   ],
   providers: [EngineService],
