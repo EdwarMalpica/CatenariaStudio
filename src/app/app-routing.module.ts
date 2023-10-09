@@ -8,6 +8,7 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { HorarioComponent } from './horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
 import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
+import { ChangePasswordComponent } from './components/user/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'verify_email', component:CheckMailComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'horarios', component: HorarioComponent },
+  { path: 'change_password', component: ChangePasswordComponent },
 ];
 
 @NgModule({
