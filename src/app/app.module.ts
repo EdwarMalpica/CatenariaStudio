@@ -30,7 +30,7 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 import { authReducer } from './store/reducers/auth.reducer';
-import { HorarioComponent } from './horario/horario.component';
+import { HorarioComponent } from './components/user/horario/horario.component';
 
 
 import {MatIconModule} from '@angular/material/icon';
@@ -57,7 +57,6 @@ import {MatChipsModule} from '@angular/material/chips';
     LoginComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
-    HorarioComponent,
   ],
   imports: [
     BrowserModule,

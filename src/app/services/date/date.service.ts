@@ -11,7 +11,7 @@ export class DateService {
 
   assignDate(date: Date): Observable<string> {
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}`,
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     });
     return this.http
       .post<string>(
@@ -31,13 +31,10 @@ export class DateService {
 
   fetchAllDates(): Observable<DateResponse> {
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}`,
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     });
     return this.http
-      .get<DateResponse>(
-        'http://localhost:8000/api/citas/user',
-        { headers }
-      )
+      .get<DateResponse>('http://localhost:8000/api/citas/user', { headers })
       .pipe(
         tap((response) => console.log(response)),
         catchError(this.handleError)

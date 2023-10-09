@@ -14,12 +14,10 @@ export class HeaderComponent implements OnInit {
   isAuthenticated: boolean = false;
 
   ngOnInit(): void {
-   const isAuthenticated = localStorage.getItem('isAuthenticated');
-    if (isAuthenticated) {
       this.auth.isAuthenticated$.subscribe((data) => {
-        this.isAuthenticated = data;
+      this.isAuthenticated = data;
+         console.log(this.isAuthenticated);
       });
-    }
   }
 
 
