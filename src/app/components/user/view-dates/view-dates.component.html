@@ -6,7 +6,7 @@
 </div>
 
 <div class="body">
-  <div class="col-md-6 mx-auto my-auto">
+  <div class="col-md-8 mx-auto my-auto">
     <div class="col-md-5 mx-auto my-auto">
       <h1 class="title_form ">Citas ajendadas</h1>
     </div>
@@ -23,8 +23,8 @@
           <th scope="row">{{cita.fecha_cita}}</th>
           <td>{{cita.mensaje}}</td>
           <td>
-            <button (click)="openEditModal(cita)">Editar</button>
-            <button (click)="onDelete(cita.id)">Eliminar</button>
+            <button class="btn-accept m-2" (click)="openEditModal(cita)">Editar</button>
+            <button class="btn-delete" (click)="onDelete(cita.id)">Eliminar</button>
           </td>
         </tr>
       </tbody>
@@ -38,20 +38,40 @@
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Editar Cita</p>
-        <button class="delete" (click)="closeEditModal()"></button>
       </header>
       <section class="modal-card-body">
         <!-- Aquí puedes colocar el formulario de edición del usuario -->
-        <form>
+        <form class="m-2">
           <!-- Campos de edición -->
           <label>Fecha:</label>
-          <input type="text" [(ngModel)]="editedDate.fecha_cita" name="fecha_cita">
+          <div>
+            <input type="text" [(ngModel)]="editedDate.fecha_cita" name="fecha_cita">
+          </div>
+          <label>Mensaje:</label>
+          <div>
+            <input class="input-details" maxlength="256" type="text" [(ngModel)]="editedDate.mensaje" name="mensaje">
+          </div>
           <!-- Otros campos de edición -->
         </form>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success" (click)="saveDateChanges()">Guardar cambios</button>
-        <button class="button" (click)="closeEditModal()">Cancelar</button>
+        <button class="button is-success btn-accept" (click)="saveDateChanges()">Guardar</button>
+        <button class="button cancel" (click)="closeEditModal()">Cancelar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal de edición -->
+  <div class="modal" [ngClass]="{ 'is-active': isDeleteModalOpen }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Eliminar cita</p>
+        <p>¿Seguro que quiere eliminar la cita?</p>
+      </header>
+      <footer class="modal-card-foot">
+        <button class="button is-success btn-delete" (click)="deleteDate()">Eliminar</button>
+        <button class="button cancel" (click)="closeDeleteModal()">Cancelar</button>
       </footer>
     </div>
   </div>
