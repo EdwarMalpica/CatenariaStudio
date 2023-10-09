@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DateService } from '../../../services/date/date.service';
 import { Date } from '../../../models/date/date';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-assign-date',

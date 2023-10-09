@@ -66,7 +66,7 @@ import { UserModule } from './components/user/user.module';
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    UserModule,
+    UserModule
     // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
   ],

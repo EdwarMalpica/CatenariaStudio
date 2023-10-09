@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { TerminosComponent } from './terminos/terminos.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
+import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'terminos', component: TerminosComponent },
   { path : 'edit', component : EditProfileComponent},
   { path : 'assign-date', component : AssignDateComponent},
+  { path : 'view-dates', component : ViewDatesComponent},
   { path: 'user', loadChildren: () => import('./components/user/user.module').then(m => m.UserModule) },
   //Lo deja por defecto
   { path: '', redirectTo: '/home', pathMatch: 'full' }

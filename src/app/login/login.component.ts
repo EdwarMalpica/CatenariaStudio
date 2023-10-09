@@ -24,6 +24,7 @@ export class LoginComponent {
     if (this.username && this.password) {
       this.authService.login(new Credential(this.username, this.password)).subscribe((dataResponse: any) => {
         console.log(dataResponse);
+        localStorage.setItem('access_token',dataResponse.token)
         alert('Inicio de sesión exitoso');
         this.router.navigate(['/edit']);
       },

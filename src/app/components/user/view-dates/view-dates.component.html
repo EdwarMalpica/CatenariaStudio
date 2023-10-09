@@ -1,0 +1,58 @@
+<div class="header_container">
+
+  <div class="img_header_edit">
+    <img src="./assets/img/BAN 1.png" class="img_header" />
+  </div>
+</div>
+
+<div class="body">
+  <div class="col-md-6 mx-auto my-auto">
+    <div class="col-md-5 mx-auto my-auto">
+      <h1 class="title_form ">Citas ajendadas</h1>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Hora</th>
+          <th scope="col">Mensaje</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <th scope="row">{{cita.fecha_cita}}</th>
+          <td>{{cita.mensaje}}</td>
+          <td>
+            <button (click)="openEditModal(cita)">Editar</button>
+            <button (click)="onDelete(cita.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Modal de edición -->
+  <div class="modal" [ngClass]="{ 'is-active': isEditModalOpen }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Editar Cita</p>
+        <button class="delete" (click)="closeEditModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Aquí puedes colocar el formulario de edición del usuario -->
+        <form>
+          <!-- Campos de edición -->
+          <label>Fecha:</label>
+          <input type="text" [(ngModel)]="editedDate.fecha_cita" name="fecha_cita">
+          <!-- Otros campos de edición -->
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" (click)="saveDateChanges()">Guardar cambios</button>
+        <button class="button" (click)="closeEditModal()">Cancelar</button>
+      </footer>
+    </div>
+  </div>
+</div>
