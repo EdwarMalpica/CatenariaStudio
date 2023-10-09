@@ -33,6 +33,7 @@ export class LoginComponent {
         localStorage.setItem('user', JSON.stringify(dataResponse.user));
         localStorage.setItem('isAuthenticated', 'true');
         this.router.navigate(['/edit']);
+        this.authService.setAuthenticated(true);
       },
         (error: any) => {
           console.log(error);
