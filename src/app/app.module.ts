@@ -33,6 +33,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
+import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 
 // import { authReducer } from './auth/auth.reducer';
 // import { AuthEffects } from './auth/auth.effects';
@@ -58,6 +59,7 @@ import { UserModule } from './components/user/user.module';
     LoginComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
+    ViewProjectComponent,
   ],
   imports: [
     BrowserModule,
