@@ -21,24 +21,23 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { esLocale } from 'ngx-bootstrap/locale';
 import { CalendarComponent } from './components/calendar/calendar.component';
-
 defineLocale('es', esLocale);
-
 import { LoginComponent } from './login/login.component';
-import { TerminosComponent } from './terminos/terminos.component';
 import { FormsModule } from '@angular/forms'; //
-
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
+import { TerminosComponent } from './terminos/terminos.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
 import { MyDisqusService } from './services/my-disqus.service';
+import { authReducer } from './store/reducers/auth.reducer';
+import { HorarioComponent } from './components/user/horario/horario.component';
 
-// import { authReducer } from './auth/auth.reducer';
-// import { AuthEffects } from './auth/auth.effects';
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -67,6 +66,7 @@ import { MyDisqusService } from './services/my-disqus.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot({ auth: authReducer }),
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
@@ -74,6 +74,8 @@ import { MyDisqusService } from './services/my-disqus.service';
     DisqusModule
     // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
+    MatIconModule,
+    MatChipsModule
   ],
   providers: [EngineService,
     MyDisqusService, // Añade tu servicio personalizado

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { AuthService } from '../services/auth/auth.service';
-import { Credential } from '../models/auth/credential';
+import { AuthState } from '../store/reducers/auth.state';
 
 @Component({
   selector: 'app-login',
@@ -11,21 +12,28 @@ import { Credential } from '../models/auth/credential';
 })
 export class LoginComponent {
 
-  username: string = '';
+  email: string = '';
   password: string = '';
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private store: Store<AuthState>) {
 
   }
 
   login() {
-    if (this.username && this.password) {
-      this.authService.login(new Credential(this.username, this.password)).subscribe((dataResponse: any) => {
-        console.log(dataResponse);
-        alert('Inicio de sesión exitoso');
+    if (this.email && this.password) {
+      this.authService.login( {
+        email:this.email,
+        password: this.password
+      }).subscribe((dataResponse: any) => {
+        // this.store.dispatch({ type: '[Auth] Login', payload: { token: dataResponse.token, user: dataResponse.user }});
+        localStorage.setItem('token', dataResponse.token);
+        localStorage.setItem('user', JSON.stringify(dataResponse.user));
+        localStorage.setItem('isAuthenticated', 'true');
         this.router.navigate(['/edit']);
+        this.authService.setAuthenticated(true);
       },
         (error: any) => {
           console.log(error);
