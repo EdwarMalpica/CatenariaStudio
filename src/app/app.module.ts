@@ -30,6 +30,8 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
+import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
+import { MyDisqusService } from './services/my-disqus.service';
 import { authReducer } from './store/reducers/auth.reducer';
 import { HorarioComponent } from './components/user/horario/horario.component';
 
@@ -68,11 +70,17 @@ import {MatChipsModule} from '@angular/material/chips';
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
+    UserModule,
+    DisqusModule
+    // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
     MatIconModule,
     MatChipsModule
   ],
-  providers: [EngineService],
+  providers: [EngineService,
+    MyDisqusService, // Añade tu servicio personalizado
+    { provide: DISQUS_SHORTNAME, useValue: 'catenariastudio-1' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

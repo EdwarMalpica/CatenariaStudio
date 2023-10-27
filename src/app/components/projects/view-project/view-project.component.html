@@ -24,3 +24,8 @@
     </div>
   </div>
 </section>
+<div *ngFor="let post of posts">
+  <h1>{{post.title}}</h1>
+  <p>{{post.content}}</p>
+  <disqus [identifier]="post.id" [url]="post.url" [title]="post.title"></disqus>
+</div>
