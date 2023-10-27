@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiServiceService } from 'src/app/services/api/api-service.service';
 
 @Component({
   selector: 'app-project-catalog',
@@ -7,7 +8,17 @@ import { Component } from '@angular/core';
 })
 export class ProjectCatalogComponent {
 
-  img_url:string
-  project_title:string
-  project_description:string
+  proyectos:any[] = [];
+  constructor(private api:ApiServiceService) {
+    this.getProjects();
+  }
+
+  getProjects(){
+    this.api.get('/proyectos').subscribe((data:any)=>{
+      this.proyectos = data.proyectos;
+    },(error)=>{
+      console.log(error);
+    })
+  }
 }
+

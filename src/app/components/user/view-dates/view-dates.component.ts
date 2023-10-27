@@ -76,6 +76,7 @@ export class ViewDatesComponent implements OnInit {
     this.dateService.deleteDate(this.deleteDateId).subscribe((dataResponse: any) => {
       if (dataResponse.citas) {
         this.citas = dataResponse.citas;
+        window.location.reload();
       }
     },
       (error: any) => {
