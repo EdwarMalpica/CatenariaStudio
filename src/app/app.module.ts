@@ -66,7 +66,6 @@ import {MatChipsModule} from '@angular/material/chips';
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    UserModule,
     // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
     MatIconModule,
     MatChipsModule
