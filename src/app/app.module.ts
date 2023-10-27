@@ -71,9 +71,7 @@ import {MatChipsModule} from '@angular/material/chips';
     FormsModule,
     HttpClientModule,
     UserModule,
-    DisqusModule
-    // StoreModule.forRoot({ auth: authReducer }), // Configura el Store con tu reducer
-    // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
+    DisqusModule,
     MatIconModule,
     MatChipsModule
   ],

@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'terminos', component: TerminosComponent },
-  { path : 'view-project', component : ViewProjectComponent},
-  { path : 'view-dates', component : ViewDatesComponent},
+  { path: 'view-project/:id', component: ViewProjectComponent },
+  { path: 'view-dates', component: ViewDatesComponent },
   { path: 'edit', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'project-catalog', component: ProjectCatalogComponent },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   //Lo deja por defecto
-  {path:'verify_email', component:CheckMailComponent},
+  { path: 'verify_email', component: CheckMailComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'horarios', component: HorarioComponent },
 ];
