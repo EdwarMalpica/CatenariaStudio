@@ -10,6 +10,7 @@ import { AssignDateComponent } from './components/user/assign-date/assign-date.c
 import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
+import { ProjectCatalogComponent } from './components/user/project-catalog/project-catalog.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'terminos', component: TerminosComponent },
   { path : 'view-dates', component : ViewDatesComponent},
   { path: 'edit', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'project-catalog', component: ProjectCatalogComponent },
+
   {
     path: 'assign-date',
     component: AssignDateComponent,
