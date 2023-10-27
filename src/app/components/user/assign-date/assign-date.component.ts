@@ -25,7 +25,6 @@ export class AssignDateComponent {
       this.dateService.assignDate(new Date(this.date_date, this.message, this.date_status_id)).subscribe((dataResponse: any) => {
         console.log(dataResponse);
         alert('La cita se ha registrado correctamente');
-        this.router.navigate(['/view-dates']);
       },
         (error: any) => {
           console.log(error);

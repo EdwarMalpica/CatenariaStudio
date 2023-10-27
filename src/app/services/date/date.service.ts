@@ -47,7 +47,7 @@ export class DateService {
 
   updateDate(date: Cita) {
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}`,
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     });
     return this.http
       .post<string>(
@@ -68,7 +68,7 @@ export class DateService {
 
   deleteDate(id: number) {
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}`,
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     });
     return this.http
       .delete<string>(

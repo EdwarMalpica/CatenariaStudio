@@ -1,20 +1,32 @@
 .container{
-    width: 70%;
-    display: grid;
-    grid-template-columns:  1fr 3fr;
+    width: 100%;
+    display: flex;
     background: linear-gradient(248deg, #040000 53.13%, #086970 68.84%);
-    border-radius: 20px;
+    border-radius: 50px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: solid;
-    border-width: 1px;
-    border-color: white;
+    padding: 0;
+
+}
+.img-container img{
+  width: 100%;
+  height: 100%;
+}
+.img-container{
+  width: 30%;
+  height: 300px;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+
 }
 
 h1,p{
     color: white;
     text-align: center;
-    font-family: Quicksand;
+    font-family: Quicksand, sans-serif;
 }
 h1{
 
@@ -29,7 +41,6 @@ p{
 
 img{
     border-radius: 20px;
-    margin: 5px;
 }
 
 .button_about{
@@ -38,8 +49,10 @@ img{
 
 
 .info_container{
-    width: 100%;
+    width: 70%;
     text-align: center;
-
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
