@@ -29,6 +29,7 @@ import { StoreModule } from '@ngrx/store';
 import { TerminosComponent } from './terminos/terminos.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
+import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 import { authReducer } from './store/reducers/auth.reducer';
 import { HorarioComponent } from './components/user/horario/horario.component';
 
@@ -57,6 +58,7 @@ import {MatChipsModule} from '@angular/material/chips';
     LoginComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
+    ViewProjectComponent,
   ],
   imports: [
     BrowserModule,

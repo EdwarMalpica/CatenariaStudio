@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { TerminosComponent } from './terminos/terminos.component';
+import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 import { HorarioComponent } from './components/user/horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
 import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
@@ -18,10 +19,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'terminos', component: TerminosComponent },
+  { path : 'view-project', component : ViewProjectComponent},
   { path : 'view-dates', component : ViewDatesComponent},
   { path: 'edit', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'project-catalog', component: ProjectCatalogComponent },
-
   {
     path: 'assign-date',
     component: AssignDateComponent,
