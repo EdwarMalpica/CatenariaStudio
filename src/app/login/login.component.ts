@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from '../services/auth/auth.service';
 import { AuthState } from '../store/reducers/auth.state';
+import { AppState } from '../data/app.state';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,12 @@ export class LoginComponent {
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private store: Store<AuthState>) {
+    private store: Store<AppState>) {
 
+  }
+
+  onSubmit() {
+    
   }
 
   login() {

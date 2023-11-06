@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +35,10 @@ import { HorarioComponent } from './horario/horario.component';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatChipsModule} from '@angular/material/chips';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducer } from './data/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -63,15 +67,16 @@ import {MatChipsModule} from '@angular/material/chips';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ auth: authReducer }),
+    CoreModule,
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([]),
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
     UserModule,
-    // EffectsModule.forRoot([AuthEffects]), // Configura los efectos
-
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [EngineService],
   bootstrap: [AppComponent],
