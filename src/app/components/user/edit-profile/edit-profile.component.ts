@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { AuthState } from 'src/app/store/reducers/auth.state';
@@ -9,7 +9,7 @@ import { selectToken, selectUser } from 'src/app/store/selectors/auth.selectors'
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.css'],
 })
-export class EditProfileComponent {
+export class EditProfileComponent implements OnInit{
   fechaSeleccionada: Date; // Variable para almacenar la fecha seleccionada
   bsConfig: Partial<BsDatepickerConfig>; // Configuración adicional para el calendario
 
@@ -28,9 +28,12 @@ export class EditProfileComponent {
       containerClass: 'theme-default',
       dateInputFormat: 'DD/MM/YYYY', // Formato de fecha que se muestra en el campo
     };
-   
 
 
+
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 }
 

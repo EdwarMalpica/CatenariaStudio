@@ -30,6 +30,7 @@
     "ng": "^0.0.0",
     "ngx-bootstrap": "^11.0.2",
     "ngx-cookie-service": "^16.1.0",
+    "ngx-disqus": "^3.0.1",
     "primeicons": "^5.0.0",
     "primeng": "^16.0.0",
     "rxjs": "~7.8.0",

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HorariosService } from '../services/horario.service';
-import { HorariosResponse } from '../models/dtos/horarios-response.interface';
+import { HorariosService } from '../../../services/horario.service';
+import { HorariosResponse } from '../../../models/dtos/horarios-response.interface';
 
 @Component({
   selector: 'app-horario',

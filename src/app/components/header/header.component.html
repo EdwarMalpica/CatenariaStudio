@@ -24,36 +24,32 @@
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link"  href="#">¿Quienes Somos? </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Servicios</a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="#">Proyectos</a>
+            <a class="nav-link" [routerLink]="'project-catalog'">Proyectos</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#">Contacto</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/horarios-atencion">Horarios de Atención</a>
-          </li>
-          <li *ngIf="!(isAuthenticated$)" class="nav-item">
+          </li> -->
+          <li *ngIf="!(isAuthenticated)" class="nav-item">
             <a class="nav-link" [routerLink]="'login'">Iniciar Session</a>
           </li>
-          <li *ngIf="!(isAuthenticated$)" class="nav-item">
+          <li *ngIf="!(isAuthenticated)" class="nav-item">
             <a class="nav-link" [routerLink]="'registro-usuario'">Registrarse</a>
           </li>
-          <li class="nav-item" *ngIf="(isAuthenticated$)">
-            <a class="nav-link" [routerLink]="'user'">Citas</a>
+          <li class="nav-item" *ngIf="(isAuthenticated)">
+            <a class="nav-link" [routerLink]="'assign-date'">Citas</a>
           </li>
-          <li class="nav-item" *ngIf="(isAuthenticated$)">
+          <li class="nav-item" *ngIf="(isAuthenticated)">
             <a class="nav-link" [routerLink]="'user'">Perfil</a>
           </li>
-          <li class="nav-item" *ngIf="(isAuthenticated$)">
-            <a class="nav-link" [routerLink]="'user'">Cerrar Session</a>
+          <li class="nav-item" *ngIf="(isAuthenticated)">
+            <a class="nav-link" (click)="closeSession()" >Cerrar Session</a>
           </li>
         </ul>
       </div>

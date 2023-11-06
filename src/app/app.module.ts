@@ -29,8 +29,11 @@ import { StoreModule } from '@ngrx/store';
 import { TerminosComponent } from './terminos/terminos.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
+import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
+import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
+import { MyDisqusService } from './services/my-disqus.service';
 import { authReducer } from './store/reducers/auth.reducer';
-import { HorarioComponent } from './horario/horario.component';
+import { HorarioComponent } from './components/user/horario/horario.component';
 
 
 import {MatIconModule} from '@angular/material/icon';
@@ -61,7 +64,7 @@ import { CoreModule } from './core/core.module';
     LoginComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
-    HorarioComponent,
+    ViewProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,11 +77,15 @@ import { CoreModule } from './core/core.module';
     FormsModule,
     HttpClientModule,
     UserModule,
+    DisqusModule,
     MatIconModule,
     MatChipsModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
-  providers: [EngineService],
+  providers: [EngineService,
+    MyDisqusService, // Añade tu servicio personalizado
+    { provide: DISQUS_SHORTNAME, useValue: 'catenariastudio-1' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
