@@ -1,0 +1,20 @@
+.title {
+  font-family: "Bahiana", sans-serif;
+  margin: 20px;
+  font-size: 40px;
+}
+
+.subtitle {
+  font-family: "Bahiana", sans-serif;
+  font-size: 15px;
+}
+
+.register {
+  text-decoration: none;
+  color: white;
+}
+
+.password {
+  text-decoration: none;
+  color: #2edcf4;
+}

@@ -11,6 +11,7 @@ export const _authReducer = createReducer(
       ...state,
       token: action.token,
       error: '',
+      user: action.user,
       isLoading: false,
     };
   }),

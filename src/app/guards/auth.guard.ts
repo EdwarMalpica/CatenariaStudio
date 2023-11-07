@@ -8,7 +8,6 @@ import {
 } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectIsAuthenticated } from '../store/selectors/auth.selectors';
 
 @Injectable({
   providedIn: 'root',

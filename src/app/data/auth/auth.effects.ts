@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { URL_API_LOGIN } from 'src/app/core/constants/constants';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
+import { User } from './auth.state';
 
 @Injectable()
 export class AuthEffects {
@@ -19,8 +20,16 @@ export class AuthEffects {
         return this.apiService.post(URL_API_LOGIN, action.data).pipe(
           map((data: any) => {
             alert('Login Success');
-
-            return loginSuccess({ token: data.token, user: data.user });
+            const user ={
+              id: data.user.id,
+              name: data.user.name,
+              email: data.user.email,
+              nombres: data.user.detalle.nombres,
+              apellidos: data.user.detalle.apellidos,
+              fecha_nacimiento: data.user.detalle.fecha_nacimiento,
+              numero_telefonico: data.user.detalle.numero_telefonico,
+            }
+            return loginSuccess({ token: data.token, user: user });
           }),
           catchError((error) => {
             alert('Login Fail'+ error);
@@ -36,6 +45,7 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(loginSuccess),
         map((action) => {
+          this.authService.saveUser(action.user);
           this.authService.saveToken(action.token);
           return action;
         })
@@ -43,17 +53,7 @@ export class AuthEffects {
     { dispatch: false }
   );
 
-  $saveUser = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(loginSuccess),
-        map((action) => {
-          this.authService.saveUser(action.user);
-          return action;
-        })
-      ),
-    { dispatch: false }
-  );
+
 
   $autoLogin = createEffect(() =>
     this.actions$.pipe(

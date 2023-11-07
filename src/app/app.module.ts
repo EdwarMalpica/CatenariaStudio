@@ -22,7 +22,6 @@ import { defineLocale } from 'ngx-bootstrap/chronos';
 import { esLocale } from 'ngx-bootstrap/locale';
 import { CalendarComponent } from './components/calendar/calendar.component';
 defineLocale('es', esLocale);
-import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
@@ -32,8 +31,6 @@ import { UserModule } from './components/user/user.module';
 import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
 import { MyDisqusService } from './services/my-disqus.service';
-import { authReducer } from './store/reducers/auth.reducer';
-import { HorarioComponent } from './components/user/horario/horario.component';
 
 
 import {MatIconModule} from '@angular/material/icon';
@@ -42,6 +39,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer } from './data/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { CoreModule } from './core/core.module';
+import { AuthEffects } from './data/auth/auth.effects';
 
 
 
@@ -61,7 +59,6 @@ import { CoreModule } from './core/core.module';
     EditProfileComponent,
     FooterComponent,
     CalendarComponent,
-    LoginComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
     ViewProjectComponent,
@@ -72,7 +69,7 @@ import { CoreModule } from './core/core.module';
     BrowserAnimationsModule,
     CoreModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
@@ -82,9 +79,10 @@ import { CoreModule } from './core/core.module';
     MatChipsModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
-  providers: [EngineService,
+  providers: [
+    EngineService,
     MyDisqusService, // Añade tu servicio personalizado
-    { provide: DISQUS_SHORTNAME, useValue: 'catenariastudio-1' }
+    { provide: DISQUS_SHORTNAME, useValue: 'catenariastudio-1' },
   ],
   bootstrap: [AppComponent],
 })
