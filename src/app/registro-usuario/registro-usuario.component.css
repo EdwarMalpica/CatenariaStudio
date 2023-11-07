@@ -1,0 +1,92 @@
+.card-header {
+  background: linear-gradient(45deg, #000000 40%, #086970);
+  color: white;
+  height: 100%;
+  /*Da espacio a los lados del componente*/
+  /* margin: 100px; */
+}
+.bg-gradient{
+  width: 100%;
+  height: 100%;
+}
+.space{
+  margin-bottom: 40px;
+}
+.row{
+  margin: 0;
+
+}
+.container{
+  background: transparent;
+}
+.inputs {
+  /* margin: 400px; */
+  /* le cambia el tamaño final del componente en donde se ven los botones */
+  /* margin-bottom: 3px; */
+}
+
+.title {
+  font-family: 'Bahiana', sans-serif;
+  /* margin-top: 650px; */
+  padding-bottom: 100px;
+  font-size: 40px;
+  /*Espacio entre título e inputs y labels*/
+  padding-bottom: 40px;
+}
+
+.subtitle {
+  font-family: 'Bahiana', sans-serif;
+  font-size: 15px;
+}
+
+.btn-css {
+  margin: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.buttons{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+.btn-acept {
+  align-items: center;
+  padding: 8px 27px;
+  font-size: 10px;
+  gap: 12px;
+
+  background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
+  /* sombra */
+  box-shadow: 0px 0px 20px #46EEFA;
+  border-radius: 10px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  color: #FFFFFF;
+}
+
+.btn-cancel {
+  align-items: center;
+  padding: 8px 27px;
+  font-size: 10px;
+  gap: 12px;
+
+  background: linear-gradient(315deg, #FF0A0A -0.12%, #010B0D 99.88%);
+  box-shadow: 0px 0px 20px #FA4646;
+  border-radius: 10px;
+
+  font-family: 'Quicksand';
+  font-style: normal;
+  color: #FFFFFF;
+
+
+
+
+}

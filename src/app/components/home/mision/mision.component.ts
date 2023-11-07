@@ -13,7 +13,7 @@ export class MisionComponent implements OnInit {
   constructor(private engService:EngineService) { }
 
   ngOnInit(): void {
-    
+
     if (document.readyState === "complete") {
       // Aquí puedes escribir el código que quieres que se ejecute después de que el DOM se haya cargado
       this.rendererCanvas.nativeElement.style.width = "100%";
@@ -26,7 +26,7 @@ export class MisionComponent implements OnInit {
         //this.engService.animate();
       });
     }
-    
+
     }
 
 

@@ -1,0 +1,42 @@
+.img_header {
+  width: 100%;
+  border: none;
+}
+
+.title_form {
+  color: white;
+  font-size: 60px;
+  display: flex;
+  margin-top: 10vh;
+  line-height: 0.8;
+  text-align: center;
+}
+
+.body{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 200px;
+    background: linear-gradient(45deg, #000000 40%, #086970 );
+}
+
+h1, h2, a {
+  color: white;
+  font-family: 'Quicksand'
+}
+
+h1 {
+  font-family: 'Bahiana';
+  font-size: 26px;
+}
+
+input {
+  background: #27FF7E;
+}
+
+  input::-webkit-input-placeholder {
+    color: black;
+    font-family: 'Bahiana';
+  }

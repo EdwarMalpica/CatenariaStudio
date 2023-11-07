@@ -1,5 +1,11 @@
-.bgmainTitle{
-    
-    background: linear-gradient(45deg, #000000 40%, #086970 );
-    background-position: center;
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+.bgmainTitle {
+
+  background: linear-gradient(45deg, #000000 40%, #086970);
+  background-position: center;
+
 }
+
+

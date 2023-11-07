@@ -1,18 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 .bodyDark{
     position: relative;
-    height: 7544px;
+    height: 100%;
     background: #000000;
 }
 
 @font-face {
-    font-family: Gogoia;
-    src: url("assets/font/GOGOIA-Regular.otf") format("opentype");
-  }
-  
+  font-family: Gogoia;
+  src: url("assets/font/GOGOIA-Regular.otf") format("opentype");
+
+}
+@font-face {
+ font-family: Bahiana;
+  src: url("assets/font/Bahiana-Regular.ttf") format("opentype");
+}
+
+body{
+  margin: 0;
+  font-family: "Quicksand","Helvetica Neue", sans-serif;
+  background: linear-gradient(to bottom right, #044D52 0%, #1E1E1E 50%)  no-repeat ;
+}
 
 .backgroundGradient{
-    height: 5000px;
+    height: 100%;
     background: radial-gradient(80.7% 80.7% at 50% 50%, #086970 0%, rgba(19, 17, 17, 0) 100%);
 }
 
@@ -27,7 +37,7 @@
 }
 
 .secondFont{
-    font-family: 'Quicksand';
+    font-family: 'Quicksand', sans-serif;
 }
 
 .btnPrimary{
@@ -38,9 +48,20 @@
 
 }
 
+.btn-primary {
+  align-items: center;
+  padding: 8px 27px;
+  font-size: 15px;
+  background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
+  box-shadow: 0px 0px 10px #46EEFA;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+.btn-primary:hover {
+  box-shadow: 0px 0px 50px #46EEFA;
+}
 .btnPrimary:hover{
     box-shadow: 0px 0px 20px #46EEFA;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

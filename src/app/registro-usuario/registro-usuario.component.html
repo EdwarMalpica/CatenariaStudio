@@ -1,0 +1,69 @@
+<!-- <p>registro-usuario works!</p> -->
+<img src="/assets/img/header.png" alt="" width="100%" height="250px">
+
+<div class=" card-header py-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center title">Registro de Usuario</h2>
+      <form>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group space">
+              <label for="nombre" class="subtitle">Nombre:</label>
+              <input type="text" id="nombre" class="form-control subtitle" [(ngModel)]="nombre" name="nombre"
+                placeholder="Nombre">
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group space">
+              <label for="apellido" class="subtitle">Apellido:</label>
+              <input type="text" id="apellido" class="form-control  subtitle" [(ngModel)]="apellido" name="apellido"
+                placeholder="Apellido">
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group space">
+              <label for="telefono" class="subtitle">Teléfono:</label>
+              <input type="tel" id="telefono" class="form-control  subtitle" [(ngModel)]="telefono" name="telefono"
+                placeholder="3000000000">
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group space">
+              <label for="email" class="subtitle">Email:</label>
+              <input type="email" id="email@mail.com" class="form-control subtitle" [(ngModel)]="email" name="email"
+                placeholder="E-mail">
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group space">
+              <label for="fechaNacimiento" class="subtitle">Fecha de Nacimiento:</label>
+              <input type="date" id="fechaNacimiento" class="form-control subtitle " [(ngModel)]="fechaNacimiento"
+                name="16/16/1655">
+            </div>
+            <div class="form-group space">
+              <label for="password" class="subtitle">Contraseña:</label>
+              <input type="password" id="password" class="form-control subtitle " [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+                >
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center btn-container">
+          <div class="col-md-auto buttons">
+            <div class="form-group">
+              <label>
+                <input type="checkbox" [(ngModel)]="aceptarTerminos" name="aceptarTerminos"> Acepto los términos y condiciones y quiero
+                <a [routerLink]="['/terminos-y-condiciones']">ver los detalles</a>.
+              </label>
+            </div>
+
+            <button class="btn btn-primary btn-acept btn-css " (click)="registrarUsuario()">Aceptar</button>
+            <button class="btn btn-secondary btn-cancel btn-css" (click)="cancelarRegistro()">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
