@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiServiceService } from 'src/app/services/api/api-service.service';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-project-catalog',
@@ -9,7 +9,7 @@ import { ApiServiceService } from 'src/app/services/api/api-service.service';
 export class ProjectCatalogComponent {
 
   proyectos:any[] = [];
-  constructor(private api:ApiServiceService) {
+  constructor(private api:ApiService) {
     this.getProjects();
   }
 

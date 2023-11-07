@@ -25,8 +25,8 @@ defineLocale('es', esLocale);
 import { FormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { TerminosComponent } from './terminos/terminos.component';
-import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import { TerminosComponent } from './core/components/terminos/terminos.component';
+import { RegistroUsuarioComponent } from './core/components/registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
@@ -40,7 +40,11 @@ import { appReducer } from './data/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { CoreModule } from './core/core.module';
 import { AuthEffects } from './data/auth/auth.effects';
-
+import { SharedModule } from './shared/shared.module';
+import { AlertsService } from './shared/services/alerts.service';
+import { ToastModule } from 'primeng/toast';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
 
 
 @NgModule({
@@ -68,6 +72,7 @@ import { AuthEffects } from './data/auth/auth.effects';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    SharedModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([AuthEffects]),
     BsDatepickerModule.forRoot(),
@@ -78,9 +83,13 @@ import { AuthEffects } from './data/auth/auth.effects';
     MatIconModule,
     MatChipsModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    ToastModule,
+    MessageModule,
+    MessagesModule,
   ],
   providers: [
     EngineService,
+    AlertsService,
     MyDisqusService, // Añade tu servicio personalizado
     { provide: DISQUS_SHORTNAME, useValue: 'catenariastudio-1' },
   ],
