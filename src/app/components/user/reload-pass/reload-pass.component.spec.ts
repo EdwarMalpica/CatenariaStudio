@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChangePassComponent } from './change-pass.component';
+import { ReloadPassComponent } from './reload-pass.component';
 
 describe('ChangePassComponent', () => {
-  let component: ChangePassComponent;
-  let fixture: ComponentFixture<ChangePassComponent>;
+  let component: ReloadPassComponent;
+  let fixture: ComponentFixture<ReloadPassComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChangePassComponent]
+      declarations: [ReloadPassComponent]
     });
-    fixture = TestBed.createComponent(ChangePassComponent);
+    fixture = TestBed.createComponent(ReloadPassComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
