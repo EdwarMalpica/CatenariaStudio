@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './core/components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { TerminosComponent } from './terminos/terminos.component';

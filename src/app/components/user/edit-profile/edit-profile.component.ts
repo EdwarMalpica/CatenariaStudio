@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-import { AuthState } from 'src/app/store/reducers/auth.state';
-import { selectToken, selectUser } from 'src/app/store/selectors/auth.selectors';
 
 @Component({
   selector: 'app-edit-profile',

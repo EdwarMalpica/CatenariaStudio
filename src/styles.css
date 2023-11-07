@@ -15,6 +15,11 @@
   src: url("assets/font/Bahiana-Regular.ttf") format("opentype");
 }
 
+body{
+  margin: 0;
+  font-family: "Quicksand","Helvetica Neue", sans-serif;
+  background: linear-gradient(to bottom right, #044D52 0%, #1E1E1E 50%)  no-repeat ;
+}
 
 .backgroundGradient{
     height: 100%;
@@ -32,7 +37,7 @@
 }
 
 .secondFont{
-    font-family: 'Quicksand';
+    font-family: 'Quicksand', sans-serif;
 }
 
 .btnPrimary{
@@ -43,12 +48,20 @@
 
 }
 
+.btn-primary {
+  align-items: center;
+  padding: 8px 27px;
+  font-size: 15px;
+  background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
+  box-shadow: 0px 0px 10px #46EEFA;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+.btn-primary:hover {
+  box-shadow: 0px 0px 50px #46EEFA;
+}
 .btnPrimary:hover{
     box-shadow: 0px 0px 20px #46EEFA;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
