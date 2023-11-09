@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthService } from '../../../services/auth/auth.service';
 import { AppState } from '../../../data/app.state';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { loginStart } from 'src/app/data/auth/auth.action';
+import { AlertsService } from 'src/app/shared/services/alerts.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService,
-    private store: Store<AppState>) {
+    private store: Store<AppState>,
+    private alerts: AlertsService) {
 
   }
   ngOnInit(): void {

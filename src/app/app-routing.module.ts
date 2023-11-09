@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditProfileComponent } from './components/user/edit-profile/edit-profile.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
-import { TerminosComponent } from './terminos/terminos.component';
+import { RegistroUsuarioComponent } from './core/components/registro-usuario/registro-usuario.component';
+import { TerminosComponent } from './core/components/terminos/terminos.component';
 import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 import { HorarioComponent } from './components/user/horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
 import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './core/guards/auth.guard';
 import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
 import { ProjectCatalogComponent } from './components/user/project-catalog/project-catalog.component';
 

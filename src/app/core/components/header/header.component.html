@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary header-navigation">
+
+  <!--Titulo-->
+
+  <div class="container white-text">
+    <a class="navbar-brand white-text" href="#">
+      <div class="row">
+        <div class="col-5">
+          <img src="/assets/img/logo.png" alt="">
+        </div>
+        <div class="col-7 d-flex flex-column justify-content-center">
+          <span class="titleFont">CATENARIA </span>
+          <span class="subTitleFont">Studio Arquitectonico</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse tw-mr-20" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 tw-gap-5  tw-w-full tw-flex tw-justify-end ">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'project-catalog'">
+          <div class="a-link tw-flex tw-items-center tw-justify-center">
+            <span class="material-symbols-outlined tw-mr-1">
+              apartment
+            </span>
+            Proyectos
+          </div>
+        </a>
+      </li>
+      <li *ngIf="!(isAuthenticated|async)" class="nav-item">
+        <a class="nav-link" [routerLink]="'login'">
+          <div class="a-link tw-flex tw-items-center tw-justify-center">
+            <span class="material-symbols-outlined tw-mr-1">
+              login
+            </span>
+            Iniciar Sesión
+          </div>
+        </a>
+      </li>
+      <li *ngIf="!(isAuthenticated|async)" class="nav-item">
+        <a class="nav-link" [routerLink]="'registro-usuario'">
+          <div class="a-link tw-flex tw-items-center tw-justify-center">
+            <span class="material-symbols-outlined tw-mr-1">
+              app_registration
+            </span>
+            Registrate
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated |async">
+        <a class="nav-link" [routerLink]="'project-catalog'">
+          <div class="a-link tw-flex tw-items-center tw-justify-center">
+            <span class="material-symbols-outlined tw-mr-1">
+              event
+            </span>
+            Citas
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dropdown tw-mr-20" *ngIf="isAuthenticated|async">
+    <button class="btn color-font-primary dropdown-toggle" style="font-weight: bold; " type="button"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="pi pi-spin pi-cog" style="font-size: 1rem"></i> Cuenta
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Perfil</a></li>
+      <li><a class="dropdown-item" href="#" (click)="closeSession()">Cerrar Sesión</a></li>
+    </ul>
+  </div>
+
+</nav>

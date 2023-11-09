@@ -1,10 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiServiceService } from 'src/app/services/api/api-service.service';
+import { ApiService } from 'src/app/core/services/api.service';
 import { EngineService } from 'src/app/services/engine.service';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { environment } from 'src/environments/environment';
+
 
 
 @Component({
@@ -22,7 +21,7 @@ export class ViewProjectComponent implements OnInit {
   @ViewChild('canvasModel') canvasModel: ElementRef<HTMLCanvasElement>;
 
   constructor(
-    private api: ApiServiceService,
+    private api: ApiService,
     private route: ActivatedRoute,
     private ngse: EngineService
   ) {
@@ -32,7 +31,7 @@ export class ViewProjectComponent implements OnInit {
       this.posts[0].url = 'http://localhost:4200/posts/' + params['id'];
       this.getProyecto(params['id']);
     });
-    this.apiUrl = this.api.urlApi;
+    this.apiUrl = environment.apiUrl;
   }
   apiUrl = '';
   getProyecto(id: any) {

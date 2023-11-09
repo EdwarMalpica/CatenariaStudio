@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataManagerService } from 'src/app/data_manage/data_manager';
+import { ApiService } from 'src/app/core/services/api.service';
 
 
 @Component({
@@ -13,20 +13,20 @@ export class CheckMailComponent implements OnInit{
   hash: string|null;
 
 
-  constructor(private dataManagerService: DataManagerService,private route: ActivatedRoute) {}
+  constructor( private route: ActivatedRoute, private api:ApiService) {}
 
   ngOnInit(): void {
     this.id = ""+this.route.snapshot.queryParamMap.get('id');
     this.hash = this.route.snapshot.queryParamMap.get('hash');
     try {
-      this.dataManagerService
-        .get_verify_email("email/verify/" + this.id + "/" + this.hash)
+      this.api
+        .get('email/verify/' + this.id + '/' + this.hash)
         .subscribe((report) => {
           let data = report;
-          console.log(data)
-        });      
+          console.log(data);
+        });
     } catch (error) {
-      
+
     }
   }
 }
