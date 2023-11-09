@@ -14,13 +14,23 @@ export class AuthService {
     this.cookieService.set('token',token);
   }
   getToken(){
-    return this.cookieService.get('token');
+    if(this.cookieService.check('token')===true){
+      return this.cookieService.get('token');
+    }
+    return '';
   }
   saveUser(user:any){
     this.cookieService.set('user',JSON.stringify(user));
   }
   getUser(){
-    return JSON.parse(this.cookieService.get('user')!);
+    if (this.cookieService.check('user')===true) {
+      return JSON.parse(this.cookieService.get('user')!);
+    }
+
+  }
+  logout(){
+    this.cookieService.delete('token');
+    this.cookieService.delete('user');
   }
 
 }

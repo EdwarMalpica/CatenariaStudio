@@ -6,20 +6,21 @@ import { LoginComponent } from './components/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HeaderComponent } from './components/header/header.component';
+import { MenubarModule } from 'primeng/menubar';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, HeaderComponent],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    MenubarModule,
   ],
-  providers:[CookieService],
-  exports:[LoginComponent]
+  providers: [CookieService],
+  exports: [LoginComponent, HeaderComponent],
 })
-export class CoreModule { }
+export class CoreModule {}

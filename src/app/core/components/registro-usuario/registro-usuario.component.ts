@@ -53,7 +53,7 @@ export class RegistroUsuarioComponent {
     }
   }
 
-  iniciarSesion() {
+  iniciarSesión() {
 
   }
 

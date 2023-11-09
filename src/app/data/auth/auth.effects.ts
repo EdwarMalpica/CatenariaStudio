@@ -2,16 +2,23 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { ApiService } from 'src/app/core/services/api.service';
-import { autoLogin, isLoadingLogin, loginStart, loginSuccess } from './auth.action';
+import { autoLogin, isLoadingLogin, loginStart, loginSuccess, logout } from './auth.action';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { URL_API_LOGIN } from 'src/app/core/constants/constants';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
-import { User } from './auth.state';
+import { AlertsService } from 'src/app/shared/services/alerts.service';
 
 @Injectable()
 export class AuthEffects {
+  constructor(
+    private actions$: Actions,
+    private apiService: ApiService,
+    private authService: AuthService,
+    private store: Store<AppState>,
+    private alerts: AlertsService
+  ) {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
@@ -19,8 +26,8 @@ export class AuthEffects {
       exhaustMap((action) => {
         return this.apiService.post(URL_API_LOGIN, action.data).pipe(
           map((data: any) => {
-            alert('Login Success');
-            const user ={
+            this.alerts.showSuccess('Inicio de Sesión Exitoso');
+            const user = {
               id: data.user.id,
               name: data.user.name,
               email: data.user.email,
@@ -28,11 +35,11 @@ export class AuthEffects {
               apellidos: data.user.detalle.apellidos,
               fecha_nacimiento: data.user.detalle.fecha_nacimiento,
               numero_telefonico: data.user.detalle.numero_telefonico,
-            }
+            };
             return loginSuccess({ token: data.token, user: user });
           }),
           catchError((error) => {
-            alert('Login Fail'+ error);
+            this.alerts.showError(error.error.message);
             return of(isLoadingLogin({ isLoading: false }));
           })
         );
@@ -53,26 +60,30 @@ export class AuthEffects {
     { dispatch: false }
   );
 
-
-
   $autoLogin = createEffect(() =>
     this.actions$.pipe(
       ofType(autoLogin),
       map((action) => {
         const token = this.authService.getToken();
         const user = this.authService.getUser();
-        if (token) {
-          return loginSuccess({ token: token , user: user});
+
+        if (token && user) {
+          return loginSuccess({ token: token, user: user });
         }
         return isLoadingLogin({ isLoading: false });
       })
     )
   );
 
-  constructor(
-    private actions$: Actions,
-    private apiService: ApiService,
-    private authService:AuthService,
-    private store: Store<AppState>
-  ) {}
+  $logout = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(logout),
+        map((action) => {
+          this.authService.logout();
+          return action;
+        })
+      ),
+    { dispatch: false }
+  );
 }
