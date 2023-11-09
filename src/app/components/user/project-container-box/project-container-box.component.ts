@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiServiceService } from 'src/app/services/api/api-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-project-container-box',
@@ -11,8 +11,8 @@ export class ProjectContainerBoxComponent {
 
   urlImg:string;
   @Input()proyecto:any;
-  apiUrl:string = this.api.urlApi;
-  constructor(private api:ApiServiceService, private router:Router) {
+  apiUrl:string = environment.apiUrl;
+  constructor( private router:Router) {
   }
 
   goToProject(){

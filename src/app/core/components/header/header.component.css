@@ -1,0 +1,42 @@
+.header-navigation{
+    background: radial-gradient(126.75% 126.75% at 50% 50%, #086970 0%, rgba(30, 33, 69, 1) 100%);
+}
+.titleFont{
+    font-family: var(--font-titles);
+    font-size: 50px;
+    line-height: 0.5;
+}
+.subTitleFont{
+    font-family: var(--font-titles);
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+nav ul li a{
+  color: white;
+  font-size: large;
+  font-weight: bold;
+}
+
+.nav-link:hover, .material-symbols-outlined:hover, .a-link:hover{
+  color: #00A1B5;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.material-symbols-outlined{
+  color: inherit;
+}
+li:hover{
+  background: inherit;
+  transition: all 0.3s ease-in-out;
+}
+.dropdown-menu{
+    background: radial-gradient(126.75% 126.75% at 50% 50%, #086970 0%, rgba(30, 33, 69, 1) 100%);
+}
+.dropdown-item:hover{
+    background: inherit;
+    color: var(--color-primary);
+    transition: all 0.3s ease-in-out;
+}
+

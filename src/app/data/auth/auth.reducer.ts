@@ -1,6 +1,6 @@
 import {  createReducer, on } from '@ngrx/store';
 import { initialState } from './auth.state';
-import { isLoadingLogin, loginSuccess } from './auth.action';
+import { isLoadingLogin, loginSuccess, logout } from './auth.action';
 
 
 
@@ -19,6 +19,22 @@ export const _authReducer = createReducer(
     return {
       ...state,
       isLoading: action.isLoading,
+    };
+  }),
+  on(logout, (state, action) => {
+    return {
+      ...state,
+      token: '',
+      error: '',
+      user: {
+        id: 0,
+        name: '',
+        email: '',
+        nombres: '',
+        apellidos: '',
+        fecha_nacimiento: '',
+        numero_telefonico: '',
+      },
     };
   })
 );
