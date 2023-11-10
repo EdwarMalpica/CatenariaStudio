@@ -19,7 +19,10 @@
         <a href="" class="password">¿Has olvidado tu contraseña?</a>
         <a href="" class="register" [routerLink]="'/registro-usuario'">Registrate</a>
       </div>
-      <button type="submit" class="btn mt-3 btn-primary tw-font-black w-50 mx-auto" style="font-weight: bold;">Login </button>
+      <button type="submit" class="btn mt-3 btn-primary tw-font-black w-50 mx-auto" style="font-weight: bold;">
+        <app-loader-button *ngIf="isLoading|async" ></app-loader-button>
+         <label for="" *ngIf="!(isLoading|async)">Login</label>
+      </button>
     </form>
   </div>
 </div>
