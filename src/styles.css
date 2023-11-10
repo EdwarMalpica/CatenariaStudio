@@ -23,6 +23,7 @@
   --font-titles: 'Bahiana', cursive;
   --color-font-primary: #FFFFFF;
   --color-error: #ff0000;
+  --gradient-primary:linear-gradient(315deg, #000000 50%, #086970 );
   --gradient-error: linear-gradient(198deg, rgba(255, 0, 0, 0.60) -1.81%, rgba(255, 0, 0, 0.10) 78%);
   --gradient-warn: linear-gradient(198deg, rgba(255, 255, 0, 0.60) -1.81%, rgba(255, 255, 0, 0.10) 78%);
   --gradient-success: linear-gradient(198deg, rgba(0, 255, 0, 0.60) -1.81%, rgba(0, 255, 0, 0.10) 78%);

@@ -9,7 +9,6 @@ import { ViewProjectComponent } from './components/projects/view-project/view-pr
 import { HorarioComponent } from './components/user/horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
 import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
-import { AuthGuard } from './core/guards/auth.guard';
 import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
 import { ProjectCatalogComponent } from './components/user/project-catalog/project-catalog.component';
 
@@ -21,18 +20,18 @@ const routes: Routes = [
   { path: 'terminos', component: TerminosComponent },
   { path: 'view-project/:id', component: ViewProjectComponent },
   { path: 'view-dates', component: ViewDatesComponent },
-  { path: 'edit', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'edit', component: EditProfileComponent },
   { path: 'project-catalog', component: ProjectCatalogComponent },
   {
     path: 'assign-date',
     component: AssignDateComponent,
-    canActivate: [AuthGuard],
+
   },
   {
     path: 'user',
     loadChildren: () =>
       import('./components/user/user.module').then((m) => m.UserModule),
-    canActivate: [AuthGuard],
+
   },
   //Lo deja por defecto
   { path: 'verify_email', component: CheckMailComponent },

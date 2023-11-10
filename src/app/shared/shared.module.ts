@@ -11,6 +11,8 @@ import { MessagesModule } from 'primeng/messages';
 import { AlertWarnComponent } from './components/alerts/alert-warn/alert-warn.component';
 import { MessageService } from 'primeng/api';
 import { AlertsService } from './services/alerts.service';
+import { LoaderGeneralComponent } from './components/loaders/loader-general/loader-general.component';
+import { LoaderButtonComponent } from './components/loaders/loader-button/loader-button.component';
 
 
 
@@ -21,6 +23,8 @@ import { AlertsService } from './services/alerts.service';
     AlertMessageComponent,
     AlertSuccessComponent,
     AlertWarnComponent,
+    LoaderGeneralComponent,
+    LoaderButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -36,6 +40,8 @@ import { AlertsService } from './services/alerts.service';
     AlertMessageComponent,
     AlertSuccessComponent,
     AlertWarnComponent,
+    LoaderGeneralComponent,
+    LoaderButtonComponent,
   ],
 })
 export class SharedModule {}

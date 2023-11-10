@@ -8,19 +8,21 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { MenubarModule } from 'primeng/menubar';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [LoginComponent, HeaderComponent],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    HttpClientModule,
-    RouterModule,
-    ReactiveFormsModule,
-    MenubarModule,
-  ],
-  providers: [CookieService],
-  exports: [LoginComponent, HeaderComponent],
+    declarations: [LoginComponent, HeaderComponent],
+    providers: [CookieService],
+    exports: [LoginComponent, HeaderComponent],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        HttpClientModule,
+        RouterModule,
+        ReactiveFormsModule,
+        MenubarModule,
+        SharedModule,
+    ]
 })
 export class CoreModule {}

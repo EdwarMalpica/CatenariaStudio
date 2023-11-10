@@ -9,6 +9,7 @@ import { URL_API_LOGIN } from 'src/app/core/constants/constants';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import { AlertsService } from 'src/app/shared/services/alerts.service';
+import { isLoading } from '../shared/shared.action';
 
 @Injectable()
 export class AuthEffects {
@@ -36,6 +37,7 @@ export class AuthEffects {
               fecha_nacimiento: data.user.detalle.fecha_nacimiento,
               numero_telefonico: data.user.detalle.numero_telefonico,
             };
+            this.store.dispatch(isLoadingLogin({ isLoading: false }));
             return loginSuccess({ token: data.token, user: user });
           }),
           catchError((error) => {
@@ -70,7 +72,7 @@ export class AuthEffects {
         if (token && user) {
           return loginSuccess({ token: token, user: user });
         }
-        return isLoadingLogin({ isLoading: false });
+        return isLoading({ isLoading: false });
       })
     )
   );
