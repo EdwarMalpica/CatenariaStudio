@@ -12,8 +12,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./view-project.component.css'],
 })
 export class ViewProjectComponent implements OnInit {
-  /** Este arreglo es solo a modo de ejemplo para tener algo que cargar
-  en la sección de comentarios y que se muestre disqus*/
   proyecto: any;
   img: any[] = [];
   id: string;
@@ -52,18 +50,14 @@ export class ViewProjectComponent implements OnInit {
   }
   ngOnInit(): void {
     if (document.readyState === 'complete') {
-      // Aquí puedes escribir el código que quieres que se ejecute después de que el DOM se haya cargado
       this.ngse.createScene(this.canvasModel);
-      //this.engService.animate();
     } else {
       document.addEventListener('DOMContentLoaded', (event) => {
         this.ngse.createScene(this.canvasModel);
-        //this.engService.animate();
       });
     }
   }
 
-  animate() {}
 
   cargarModelo() {
     return new URL(this.apiUrl + this.modelPath, import.meta.url);

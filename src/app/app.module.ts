@@ -27,9 +27,6 @@ import { StoreModule } from '@ngrx/store';
 import { TerminosComponent } from './core/components/terminos/terminos.component';
 import { RegistroUsuarioComponent } from './core/components/registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
-import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
-import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
-import { MyDisqusService } from './services/my-disqus.service';
 
 
 import {MatIconModule} from '@angular/material/icon';
@@ -44,6 +41,7 @@ import { AlertsService } from './shared/services/alerts.service';
 import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
+import { ProyectsModule } from './modules/proyects/proyects.module';
 
 
 @NgModule({
@@ -63,7 +61,6 @@ import { MessagesModule } from 'primeng/messages';
     CalendarComponent,
     RegistroUsuarioComponent,
     TerminosComponent,
-    ViewProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,13 +68,13 @@ import { MessagesModule } from 'primeng/messages';
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
+    ProyectsModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([AuthEffects]),
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
     UserModule,
-    DisqusModule,
     MatIconModule,
     MatChipsModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
@@ -88,8 +85,6 @@ import { MessagesModule } from 'primeng/messages';
   providers: [
     EngineService,
     AlertsService,
-    MyDisqusService, // Añade tu servicio personalizado
-    { provide: DISQUS_SHORTNAME, useValue: 'catenariastudio-1' },
   ],
   bootstrap: [AppComponent],
 })

@@ -3,5 +3,5 @@ export interface SharedState{
 }
 
 export const initialState: SharedState = {
-  isLoading: false,
+  isLoading: true,
 };

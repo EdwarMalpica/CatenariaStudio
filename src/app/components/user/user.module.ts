@@ -10,8 +10,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HorarioComponent } from './horario/horario.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
-import { ProjectCatalogComponent } from './project-catalog/project-catalog.component';
-import { ProjectContainerBoxComponent } from './project-container-box/project-container-box.component';
 
 
 
@@ -21,8 +19,6 @@ import { ProjectContainerBoxComponent } from './project-container-box/project-co
     AssignDateComponent,
     ViewDatesComponent,
     HorarioComponent,
-    ProjectCatalogComponent,
-    ProjectContainerBoxComponent,
   ],
   imports: [
     CommonModule,
