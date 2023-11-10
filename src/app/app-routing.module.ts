@@ -8,6 +8,7 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
 import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
 import { ReloadPassComponent } from './components/user/reload-pass/reload-pass.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path : 'edit', component : EditProfileComponent},
   { path : 'assign-date', component : AssignDateComponent},
   { path: 'view-dates', component: ViewDatesComponent },
+  { path: 'forgot-pass', component: ForgotPassComponent },
   { path: 'reload-pass', component: ReloadPassComponent },
   { path: 'user', loadChildren: () => import('./components/user/user.module').then(m => m.UserModule) },
   //Lo deja por defecto

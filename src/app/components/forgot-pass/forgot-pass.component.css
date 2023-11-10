@@ -1,0 +1,94 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.container_form {
+  background: linear-gradient(45deg, #000000 40%, #086970);
+  background-position: center;
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+}
+
+
+.card-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+
+.title {
+  font-family: 'Bahiana', sans-serif;
+  margin: 20px;
+  font-size: 40px;
+}
+
+.profile {
+  position: absolute;
+  z-index: 1;
+  top: 300px;
+  left: 150px;
+}
+
+.subtitle {
+  font-family: 'Bahiana', sans-serif;
+  font-size: 15px;
+}
+
+.inputs {
+  margin: 70px;
+}
+
+.input-space {
+  margin: 20px;
+}
+
+.align {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Divide en dos columnas de igual ancho */
+  gap: 10px;
+  /* Espacio entre elementos */
+  align-items: center;
+}
+
+label,
+input {
+  display: block;
+  /* Hace que el label y el input sean bloques para ocupar toda la columna */
+}
+
+.btn-login {
+  align-items: center;
+  padding: 8px 27px;
+  font-size: 10px;
+  gap: 12px;
+  background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
+  /* sombra */
+  box-shadow: 0px 0px 20px #46EEFA;
+  border-radius: 10px;
+  font-family: 'Quicksand';
+  font-style: normal;
+  color: #FFFFFF;
+}
+
+
+.register {
+  text-decoration: none;
+  color: white;
+}
+
+.password {
+  text-decoration: none;
+  color: #2EDCF4;
+}
+
+.options {
+  margin: 20px;
+}
