@@ -12,12 +12,19 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./view-project.component.css'],
 })
 export class ViewProjectComponent implements OnInit {
-  /** Este arreglo es solo a modo de ejemplo para tener algo que cargar
-  en la sección de comentarios y que se muestre disqus*/
   proyecto: any;
   img: any[] = [];
   id: string;
   modelPath = '';
+  apiUrl = '';
+  posts = [
+    {
+      id: '1',
+      title: 'Sección de comentarios',
+      url: 'http://localhost:4200/posts/1',
+      content: 'Dejanos un comentario con tu opinión acerca de este proyecto :D',
+    },
+  ];
   @ViewChild('canvasModel') canvasModel: ElementRef<HTMLCanvasElement>;
 
   constructor(
@@ -33,9 +40,9 @@ export class ViewProjectComponent implements OnInit {
     });
     this.apiUrl = environment.apiUrl;
   }
-  apiUrl = '';
+
   getProyecto(id: any) {
-    this.api.get('/proyectos/' + id).subscribe((data: any) => {
+    this.api.get('proyectos/' + id).subscribe((data: any) => {
       this.proyecto = data.publicacion;
       this.img = this.proyecto.files.filter((file: any) =>
         this.noContieneGLBorGLTF(file.formato)
@@ -48,22 +55,16 @@ export class ViewProjectComponent implements OnInit {
 
   setScene() {
     this.ngse.createScene(this.canvasModel);
-
   }
   ngOnInit(): void {
     if (document.readyState === 'complete') {
-      // Aquí puedes escribir el código que quieres que se ejecute después de que el DOM se haya cargado
       this.ngse.createScene(this.canvasModel);
-      //this.engService.animate();
     } else {
       document.addEventListener('DOMContentLoaded', (event) => {
         this.ngse.createScene(this.canvasModel);
-        //this.engService.animate();
       });
     }
   }
-
-  animate() {}
 
   cargarModelo() {
     return new URL(this.apiUrl + this.modelPath, import.meta.url);
@@ -76,12 +77,4 @@ export class ViewProjectComponent implements OnInit {
   noContieneGLBorGLTF(cadena: string): boolean {
     return !cadena.includes('glb') && !cadena.includes('gltf');
   }
-  posts = [
-    {
-      id: '1',
-      title: 'Sección de comentarios',
-      url: 'http://localhost:4200/posts/1',
-      content: 'Comentarios para Catenaria House',
-    },
-  ];
 }

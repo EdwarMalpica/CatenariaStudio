@@ -10,18 +10,18 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   post(url: string, data: any) {
-    return this.http.post(this.apiUrl + '/' + url, data);
+    return this.http.post(this.apiUrl + '/api/' + url, data);
   }
   get(url: string) {
-    return this.http.get(this.apiUrl + '/' + url);
+    return this.http.get(this.apiUrl + '/api/' + url);
   }
   formatErrorMessage(message: string) {
     return message.replace(/_/g, ' ');
   }
   put(url: string, data: any) {
-    return this.http.put(this.apiUrl + '/' + url, data);
+    return this.http.put(this.apiUrl + '/api/' + url, data);
   }
   delete(url: string) {
-    return this.http.delete(this.apiUrl + '/' + url);
+    return this.http.delete(this.apiUrl + '/api/' + url);
   }
 }

@@ -1,0 +1,41 @@
+<div class="tw-w-full tw-flex project-container" [ngClass]="{'tw-flex-row-reverse':isLeftVisible}">
+  <div class="img-container">
+    <img [src]="apiUrl+proyecto.miniatura_path" alt="">
+  </div>
+  <div class="info_container" [style.background]="urlImg">
+    <h1>{{proyecto.titulo}}</h1>
+    <p>{{proyecto.descripcion}} </p>
+  </div>
+</div>
+<div [class.animation]="!displayComponent" class="bg-black">
+  <div [class.visible]="displayComponent" [class.hidden]="!displayComponent" [ngClass]="{'visible':displayComponent}"
+    class="tw-w-full tw-flex hidden tw-h-full">
+    <div class="tw-w-full tw-flex tw-items-center tw-gap-5 tw-justify-center tw-h-full">
+
+      <div class="card tw-w-96">
+        <h2>Lo interesante en este proyecto</h2>
+        <p>
+          representa la convergencia entre la innovación y la estética. Cada línea, cada curva, y cada espacio están
+          meticulosamente diseñados para no solo cumplir una función, sino también para cautivar los sentidos. Desde la fusión de
+          elementos modernos hasta la integración armoniosa con el entorno, este proyecto redefine la forma en la que
+          experimentamos y habitamos el espacio.
+        </p>
+        <a (click)="goToProject()">
+          Conoce mas ....
+        </a>
+      </div>
+      <div class="card  tw-w-96">
+        <h2>Solicita una cita</h2>
+        <p>
+          ¿Listo para dar vida a tu sueño arquitectónico? Nuestro equipo está aquí para convertir tu visión en una realidad
+          tangible. Desde casas innovadoras hasta espacios inspiradores, cada proyecto es único, y queremos ser parte de tu
+          historia. Déjanos diseñar juntos el hogar de tus sueños. ¡Comencemos a construir tu futuro hoy mismo! Solicita una cita
+          y déjanos transformar tus ideas en espacios palpables.
+        </p>
+        <a >
+          Solicita una cita...
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

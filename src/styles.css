@@ -123,6 +123,12 @@ app-header{
   left: 0;
   width: 100%;
   z-index: 1000;
+  height: 100px;
 }
+.coments .ng-star-inserted h1,p{
+  color: black;
+}
+
+
 
 

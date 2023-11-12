@@ -4,7 +4,6 @@ import { AlertInfoComponent } from './components/alerts/alert-info/alert-info.co
 import { AlertErrorComponent } from './components/alerts/alert-error/alert-error.component';
 import { AlertMessageComponent } from './components/alerts/alert-message/alert-message.component';
 import { AlertSuccessComponent } from './components/alerts/alert-success/alert-success.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
@@ -28,7 +27,6 @@ import { LoaderButtonComponent } from './components/loaders/loader-button/loader
   ],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     ToastModule,
     MessageModule,
     MessagesModule,

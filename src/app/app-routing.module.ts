@@ -5,12 +5,10 @@ import { LoginComponent } from './core/components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuarioComponent } from './core/components/registro-usuario/registro-usuario.component';
 import { TerminosComponent } from './core/components/terminos/terminos.component';
-import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
 import { HorarioComponent } from './components/user/horario/horario.component';
 import { AssignDateComponent } from './components/user/assign-date/assign-date.component';
 import { ViewDatesComponent } from './components/user/view-dates/view-dates.component';
 import { CheckMailComponent } from './components/user/check-mail/check-mail.component';
-import { ProjectCatalogComponent } from './components/user/project-catalog/project-catalog.component';
 
 
 const routes: Routes = [
@@ -18,14 +16,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: 'terminos', component: TerminosComponent },
-  { path: 'view-project/:id', component: ViewProjectComponent },
   { path: 'view-dates', component: ViewDatesComponent },
   { path: 'edit', component: EditProfileComponent },
-  { path: 'project-catalog', component: ProjectCatalogComponent },
   {
     path: 'assign-date',
     component: AssignDateComponent,
-
   },
   {
     path: 'user',
@@ -33,10 +28,10 @@ const routes: Routes = [
       import('./components/user/user.module').then((m) => m.UserModule),
 
   },
-  //Lo deja por defecto
+  {path:'projects',loadChildren:()=>import('./modules/proyects/proyects.module').then((m)=>m.ProyectsModule)},
   { path: 'verify_email', component: CheckMailComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'horarios', component: HorarioComponent },
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
