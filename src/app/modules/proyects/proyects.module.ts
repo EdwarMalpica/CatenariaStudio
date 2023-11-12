@@ -6,7 +6,6 @@ import { ProyectsComponent } from './proyects.component';
 import { ProjectContainerBoxComponent } from './project-container-box/project-container-box.component';
 import { ViewProjectComponent } from './view-project/view-project.component';
 import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyDisqusService } from 'src/app/modules/services/my-disqus.service';
 
 
@@ -18,7 +17,6 @@ import { MyDisqusService } from 'src/app/modules/services/my-disqus.service';
   ],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     ProyectsRoutingModule,
     DisqusModule],
   providers: [

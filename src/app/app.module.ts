@@ -24,7 +24,6 @@ defineLocale('es', esLocale);
 import { FormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { TerminosComponent } from './core/components/terminos/terminos.component';
 import { RegistroUsuarioComponent } from './core/components/registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 
@@ -42,6 +41,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { ProyectsModule } from './modules/proyects/proyects.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -60,9 +60,9 @@ import { ProyectsModule } from './modules/proyects/proyects.module';
     FooterComponent,
     CalendarComponent,
     RegistroUsuarioComponent,
-    TerminosComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -77,7 +77,7 @@ import { ProyectsModule } from './modules/proyects/proyects.module';
     UserModule,
     MatIconModule,
     MatChipsModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({ maxAge: 1000, logOnly: !isDevMode() }),
     ToastModule,
     MessageModule,
     MessagesModule,

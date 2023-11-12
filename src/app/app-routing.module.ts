@@ -21,7 +21,6 @@ const routes: Routes = [
   {
     path: 'assign-date',
     component: AssignDateComponent,
-
   },
   {
     path: 'user',
@@ -31,8 +30,8 @@ const routes: Routes = [
   },
   {path:'projects',loadChildren:()=>import('./modules/proyects/proyects.module').then((m)=>m.ProyectsModule)},
   { path: 'verify_email', component: CheckMailComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'horarios', component: HorarioComponent },
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
