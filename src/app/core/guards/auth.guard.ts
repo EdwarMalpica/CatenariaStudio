@@ -1,41 +1,19 @@
-import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
-  Router,
-} from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { tap } from 'rxjs';
+import { AppState } from 'src/app/data/app.state';
+import { isAuthenticated } from 'src/app/data/auth/auth.selector';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class AuthGuard implements CanActivate {
-  constructor(private store: Store, private router: Router) {}
-
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    // Verifica el estado de autenticación utilizando el selector
-    // return this.store.select(selectIsAuthenticated).pipe(
-    //   map((isAuthenticated:boolean) => {
-    //     if (isAuthenticated) {
-    //       // El usuario está autenticado, permite el acceso a la ruta
-    //       return true;
-    //     } else {
-    //       // El usuario no está autenticado, redirige a la página de inicio de sesión
-    //       this.router.navigate(['/login']);
-    //       return false;
-    //     }
-    //   })
-    // );
-    return localStorage.getItem('isAuthenticated') === 'true'
-  }
-}
+export const authGuard: CanActivateFn = (route, state) => {
+  const store = inject(Store<AppState>);
+  const router = inject(Router);
+  const islog = store.select(isAuthenticated);
+  return islog.pipe(
+    tap((isLogged) => {
+      if (!isLogged) {
+        // router.navigate(['/login']);
+      }
+    })
+  );
+};

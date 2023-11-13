@@ -9,7 +9,6 @@ import { AlertsService } from 'src/app/shared/services/alerts.service';
 export class AlertErrorComponent {
   constructor(private alerts: AlertsService) {}
   onSuccess(key: string) {
-    //Acciones adicionales
     this.alerts.clear(key);
   }
   onReject(key: string) {

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './components/home/title/title.component';
 import { HomeComponent } from './components/home/home.component';
 import { MisionComponent } from './components/home/mision/mision.component';
-import { EngineService } from './services/engine.service';
+import { EngineService } from './core/services/engine.service';
 import { ProyectsTitleComponent } from './components/home/proyects-title/proyects-title.component';
 import { SectionContentRightComponent } from './components/section-content-right/section-content-right.component';
 import { SectionContentLeftComponent } from './components/section-content-left/section-content-left.component';
@@ -24,12 +24,8 @@ defineLocale('es', esLocale);
 import { FormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { TerminosComponent } from './core/components/terminos/terminos.component';
 import { RegistroUsuarioComponent } from './core/components/registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
-import { ViewProjectComponent } from './components/projects/view-project/view-project.component';
-import { DISQUS_SHORTNAME, DisqusModule } from 'ngx-disqus';
-import { MyDisqusService } from './services/my-disqus.service';
 
 
 import {MatIconModule} from '@angular/material/icon';
@@ -41,9 +37,9 @@ import { CoreModule } from './core/core.module';
 import { AuthEffects } from './data/auth/auth.effects';
 import { SharedModule } from './shared/shared.module';
 import { AlertsService } from './shared/services/alerts.service';
-import { ToastModule } from 'primeng/toast';
-import { MessageModule } from 'primeng/message';
-import { MessagesModule } from 'primeng/messages';
+import { ProyectsModule } from './modules/proyects/proyects.module';
+import { CommonModule } from '@angular/common';
+import { CitasModule } from './modules/citas/citas.module';
 
 
 @NgModule({
@@ -62,34 +58,29 @@ import { MessagesModule } from 'primeng/messages';
     FooterComponent,
     CalendarComponent,
     RegistroUsuarioComponent,
-    TerminosComponent,
-    ViewProjectComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CitasModule,
     CoreModule,
     SharedModule,
+    ProyectsModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([AuthEffects]),
     BsDatepickerModule.forRoot(),
     FormsModule,
     HttpClientModule,
     UserModule,
-    DisqusModule,
     MatIconModule,
     MatChipsModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    ToastModule,
-    MessageModule,
-    MessagesModule,
   ],
   providers: [
     EngineService,
-    AlertsService,
-    MyDisqusService, // Añade tu servicio personalizado
-    { provide: DISQUS_SHORTNAME, useValue: 'catenariastudio-1' },
+    AlertsService
   ],
   bootstrap: [AppComponent],
 })

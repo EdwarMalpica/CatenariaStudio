@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialState } from './shared.state';
-import { isLoading } from './shared.action';
+import { isLoading, isLoadingButton } from './shared.action';
 
 export const _sharedReducer = createReducer(
   initialState,
@@ -9,5 +9,11 @@ export const _sharedReducer = createReducer(
       ...state,
       isLoading: action.isLoading,
     };
-  })
+  }),
+  on(isLoadingButton, (state, action) => {
+    return {
+      ...state,
+      isLoadingButton: action.isLoadingButton,
+    };
+  }),
 );

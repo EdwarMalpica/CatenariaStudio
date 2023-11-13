@@ -5,10 +5,11 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { autoLogin, isLoadingLogin, loginStart, loginSuccess, logout } from './auth.action';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { URL_API_LOGIN } from 'src/app/core/constants/constants';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import { AlertsService } from 'src/app/shared/services/alerts.service';
+import { isLoading } from '../shared/shared.action';
+import { URL_API_LOGIN } from '../constants/constants';
 
 @Injectable()
 export class AuthEffects {
@@ -24,6 +25,8 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(loginStart),
       exhaustMap((action) => {
+        console.log('fui llamado dentro del effect');
+
         return this.apiService.post(URL_API_LOGIN, action.data).pipe(
           map((data: any) => {
             this.alerts.showSuccess('Inicio de Sesión Exitoso');
@@ -36,11 +39,13 @@ export class AuthEffects {
               fecha_nacimiento: data.user.detalle.fecha_nacimiento,
               numero_telefonico: data.user.detalle.numero_telefonico,
             };
+            this.store.dispatch(isLoadingLogin({ isLoading: false }));
             return loginSuccess({ token: data.token, user: user });
           }),
           catchError((error) => {
             this.alerts.showError(error.error.message);
-            return of(isLoadingLogin({ isLoading: false }));
+            this.store.dispatch(isLoadingLogin({ isLoading: false }));
+            return of();
           })
         );
       })
@@ -70,7 +75,7 @@ export class AuthEffects {
         if (token && user) {
           return loginSuccess({ token: token, user: user });
         }
-        return isLoadingLogin({ isLoading: false });
+        return isLoading({ isLoading: false });
       })
     )
   );

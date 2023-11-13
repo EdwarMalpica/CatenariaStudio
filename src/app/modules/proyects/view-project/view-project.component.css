@@ -1,0 +1,68 @@
+.sectionContentBackground {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  font-size: 90px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.coments{
+  width: 80%;
+  margin: auto;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  padding: 20px;
+}
+.footer-coments{
+  width: 100%;
+  color: black;
+}
+
+.two .carousel{
+  margin: auto;
+  background-color: #F5F5F5;
+}
+.two .carousel .carousel-item{
+  width: 100%;
+  height: 600px;
+}
+.two .carousel-item img{
+  width: 100%;
+  height: 100%;
+}
+.card{
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 20px;
+  color: #F5F5F5;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  font-family: 'Quicsand', sans-serif;
+  border: none;
+
+}
+.contenido{
+  margin: auto;
+  margin-top: 100px;
+  width: 80%;
+  color: #F5F5F5;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.model{
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}

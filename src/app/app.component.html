@@ -1,4 +1,5 @@
 <app-header></app-header>
+<div style="height: 100px;"></div>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 <!-- Alerts -->
@@ -14,3 +15,7 @@
 <app-alert-message></app-alert-message>
 
 
+<!-- Loaders -->
+<app-loader-general *ngIf="isloading|async">
+
+</app-loader-general>

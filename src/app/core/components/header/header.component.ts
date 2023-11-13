@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { MenuItem } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/data/app.state';
 import { logout } from 'src/app/data/auth/auth.action';
@@ -22,5 +21,8 @@ export class HeaderComponent implements OnInit {
 
   closeSession() {
     this.store.dispatch(logout());
+  }
+  goProjects() {
+    this.router.navigate(['/projects']);
   }
 }
