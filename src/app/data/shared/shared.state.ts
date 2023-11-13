@@ -1,7 +1,9 @@
 export interface SharedState{
   isLoading: boolean;
+  isLoadingButton: boolean;
 }
 
 export const initialState: SharedState = {
-  isLoading: true,
+  isLoading: false,
+  isLoadingButton: false,
 };

@@ -1,7 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { ApiService } from 'src/app/core/services/api.service';
-import { EngineService } from 'src/app/services/engine.service';
+import { EngineService } from 'src/app/core/services/engine.service';
+import { AppState } from 'src/app/data/app.state';
+import { isLoading } from 'src/app/data/shared/shared.action';
 import { environment } from 'src/environments/environment';
 
 
@@ -30,7 +33,8 @@ export class ViewProjectComponent implements OnInit {
   constructor(
     private api: ApiService,
     private route: ActivatedRoute,
-    private ngse: EngineService
+    private ngse: EngineService,
+    private store:Store<AppState>
   ) {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
@@ -42,6 +46,7 @@ export class ViewProjectComponent implements OnInit {
   }
 
   getProyecto(id: any) {
+    this.store.dispatch(isLoading({ isLoading: true }));
     this.api.get('proyectos/' + id).subscribe((data: any) => {
       this.proyecto = data.publicacion;
       this.img = this.proyecto.files.filter((file: any) =>
@@ -50,6 +55,7 @@ export class ViewProjectComponent implements OnInit {
       this.modelPath = this.proyecto.files.filter((file: any) =>
         this.contieneGLBorGLTF(file.formato)
       )[0].path;
+      this.store.dispatch(isLoading({ isLoading: false }));
     });
   }
 

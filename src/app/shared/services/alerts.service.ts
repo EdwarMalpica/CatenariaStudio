@@ -13,7 +13,6 @@ export class AlertsService {
       key: 'br-success',
       severity: 'success',
       summary: 'Proceso Exitoso',
-      sticky: true,
       detail: message,
       closable: false,
       life: 5000,

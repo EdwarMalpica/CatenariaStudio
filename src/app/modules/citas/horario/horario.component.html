@@ -1,0 +1,37 @@
+<div class="tw-flex ">
+  <div class="tw-flex tw-w-2/4 tw-p-20 tw-justify-center tw-items-center">
+    <div class="content-table">
+      <table aria-hidden="">
+        <caption>Tabla de horarios de atencion</caption>
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Horas de atencion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dia of horarios">
+            <td>
+              {{dia.dia}}
+            </td>
+            <td>
+              <span *ngIf="dia.franjas.length == 0">
+                Cerrado
+              </span>
+              <span *ngFor="let franja of dia.franjas">
+                {{formatTo12Hour(franja.hora_inicio)}} - {{formatTo12Hour(franja.hora_fin)}}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="tw-flex tw-w-2/4 tw-p-20 tw-justify-center tw-items-center">
+    <p>"¡Gracias por tu interés en reservar una cita con nosotros! Te invitamos a revisar nuestra tabla de horarios de
+      atención, donde encontrarás nuestros bloques disponibles para programar tu cita. Nuestro equipo está aquí para
+      hacer
+      realidad tus proyectos arquitectónicos dentro de esos horarios. ¡Esperamos trabajar contigo y dar vida a tus
+      ideas!"</p>
+  </div>
+</div>
