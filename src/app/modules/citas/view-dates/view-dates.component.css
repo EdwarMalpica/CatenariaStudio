@@ -1,0 +1,43 @@
+.content-table{
+  width: 80%;
+  border: 1px solid #00A1B5;
+  border-radius: 20px;
+  padding: 20px;
+}
+table{
+  width: 100%;
+}
+thead{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+th{
+  padding: 10px;
+  border-bottom: 1px solid #00A1B5;
+}
+td{
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #00A1B5;
+  font-weight: bold;
+}
+td span{
+  background-color: #00A1B5;
+  border-radius: 20px;
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+p{
+  font-size: 20px;
+  font-weight: bold;
+}
+caption{
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+

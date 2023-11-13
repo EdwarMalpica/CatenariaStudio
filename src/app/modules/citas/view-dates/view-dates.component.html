@@ -1,0 +1,45 @@
+<div class="tw-w-full tw-flex tw-mb-32">
+  <div class="tw-flex tw-w-2/4 tw-p-20 tw-justify-center tw-items-center">
+    <p>Tu espacio de citas: organiza, programa y controla tus reuniones arquitectónicas con facilidad. ¡Tu agenda, en tus
+    manos!</p>
+  </div>
+  <div class="tw-flex tw-w-2/4 tw-justify-center tw-items-center">
+    <div class="content-table">
+      <table aria-hidden="">
+        <caption>Tus Citas</caption>
+        <thead>
+          <tr>
+            <th>Fecha Cita</th>
+            <th>Mensaje</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citas">
+            <td>{{cita.fecha_cita}}</td>
+            <td>{{cita.mensaje}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="showDialog(cita)">Cancelar</button>
+            </td>
+          </tr>
+          <tr *ngIf="isLoadingButton|async">
+            <td colspan="3">
+              <app-loader-button></app-loader-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+  <ng-template pTemplate="header">
+    <span class="text-xl font-bold">Cancelar cita</span>
+  </ng-template>
+  <p>
+    ¿Estas seguro que deseas cancelar la cita?
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="cancelarCita()" label="Cancelar" styleClass="btn-danger btn"></p-button>
+  </ng-template>
+</p-dialog>
