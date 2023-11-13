@@ -1,0 +1,42 @@
+<app-carrousel></app-carrousel>
+
+
+
+<h2 class=" tw-text-center tw-w-full tw-mt-32">Reserva tu cita</h2>
+<div class="tw-w-full tw-mt-20 tw-flex">
+  <div class="tw-w-2/4 tw-pt-20 tw-flex tw-flex-col tw-justify-center tw-items-center" >
+    <div class="tw-flex tw-w-9/12">
+      <p class="">
+        Imagina un espacio que refleje tus sueños, un lugar que vaya más allá de los planos. En Catenaria Estudio, estamos
+        aquí
+        para convertir tu visión en una realidad palpable. Nuestro equipo no solo diseña, sino que crea historias a través de
+        cada estructura, cada línea. Reserva tu cita con nosotros y sumérgete en el viaje de dar vida a tus ideas. ¡Juntos,
+        construyamos un futuro que te emocione y te inspire cada vez que entres por esa puerta que diseñamos para ti!</p>
+      <img class="tw-w-32" src="./assets/img/atencionCliente.png" alt="">
+    </div>
+  </div>
+  <div class="tw-w-2/4 tw-p-20">
+    <form action="">
+      <div class="tw-flex tw-gap-5 tw-flex-col">
+        <label for="">Cuentanos un poco sobre el proyecto de tus sueños:</label>
+        <textarea placeholder="Escribe aqui tu mensaje..." [(ngModel)]="mensajeCita" name="mensajeCita" id="" cols="30" rows="10"></textarea>
+      </div>
+      <div class="tw-flex tw-items-center tw-gap-5 tw-mt-5">
+        <label class=" tw-w-2/4" for="">Dinos a que hora te queda bien para que nos pongamos en contacto contigo:</label>
+        <p-calendar [showIcon]="true"  [style]="{'width':'300px','height':'50px'}" [placeholder]="'Selecciona la hora'" [(ngModel)]="date" name="date" [showTime]="true" [showSeconds]="true"></p-calendar>
+      </div>
+      <div class="tw-flex tw-gap-5 tw-mt-5 tw-justify-center">
+        <button type="button" (click)="assignDate()"  class="tw-w-36 btn btn-primary">
+          <div *ngIf="isLoadingButton|async">
+            <app-loader-button></app-loader-button>
+          </div>
+          <div *ngIf="!(isLoadingButton|async)">
+            Solicitar cita
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-horario></app-horario>
+<app-view-dates></app-view-dates>

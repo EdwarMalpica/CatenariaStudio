@@ -8,10 +8,10 @@ import { ToastModule } from 'primeng/toast';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { AlertWarnComponent } from './components/alerts/alert-warn/alert-warn.component';
-import { MessageService } from 'primeng/api';
-import { AlertsService } from './services/alerts.service';
 import { LoaderGeneralComponent } from './components/loaders/loader-general/loader-general.component';
 import { LoaderButtonComponent } from './components/loaders/loader-button/loader-button.component';
+import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -24,6 +24,7 @@ import { LoaderButtonComponent } from './components/loaders/loader-button/loader
     AlertWarnComponent,
     LoaderGeneralComponent,
     LoaderButtonComponent,
+    CarrouselComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +32,7 @@ import { LoaderButtonComponent } from './components/loaders/loader-button/loader
     MessageModule,
     MessagesModule,
   ],
-  providers: [AlertsService, MessageService],
+  providers: [ MessageService],
   exports: [
     AlertInfoComponent,
     AlertErrorComponent,
@@ -40,6 +41,7 @@ import { LoaderButtonComponent } from './components/loaders/loader-button/loader
     AlertWarnComponent,
     LoaderGeneralComponent,
     LoaderButtonComponent,
+    CarrouselComponent,
   ],
 })
 export class SharedModule {}

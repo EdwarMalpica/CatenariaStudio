@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('fui llamado boton de submit');
     if (this.loginForm.valid) {
       this.store.dispatch(isLoadingLogin({ isLoading: true }));
       this.store.dispatch(
@@ -52,9 +53,7 @@ export class LoginComponent implements OnInit {
         })
       );
       this.loginForm.reset();
-    } else {
     }
-
   }
 
 

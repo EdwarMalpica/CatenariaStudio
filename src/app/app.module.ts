@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './components/home/title/title.component';
 import { HomeComponent } from './components/home/home.component';
 import { MisionComponent } from './components/home/mision/mision.component';
-import { EngineService } from './services/engine.service';
+import { EngineService } from './core/services/engine.service';
 import { ProyectsTitleComponent } from './components/home/proyects-title/proyects-title.component';
 import { SectionContentRightComponent } from './components/section-content-right/section-content-right.component';
 import { SectionContentLeftComponent } from './components/section-content-left/section-content-left.component';
@@ -37,11 +37,9 @@ import { CoreModule } from './core/core.module';
 import { AuthEffects } from './data/auth/auth.effects';
 import { SharedModule } from './shared/shared.module';
 import { AlertsService } from './shared/services/alerts.service';
-import { ToastModule } from 'primeng/toast';
-import { MessageModule } from 'primeng/message';
-import { MessagesModule } from 'primeng/messages';
 import { ProyectsModule } from './modules/proyects/proyects.module';
 import { CommonModule } from '@angular/common';
+import { CitasModule } from './modules/citas/citas.module';
 
 
 @NgModule({
@@ -66,6 +64,7 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CitasModule,
     CoreModule,
     SharedModule,
     ProyectsModule,
@@ -77,14 +76,11 @@ import { CommonModule } from '@angular/common';
     UserModule,
     MatIconModule,
     MatChipsModule,
-    StoreDevtoolsModule.instrument({ maxAge: 1000, logOnly: !isDevMode() }),
-    ToastModule,
-    MessageModule,
-    MessagesModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
     EngineService,
-    AlertsService,
+    AlertsService
   ],
   bootstrap: [AppComponent],
 })
