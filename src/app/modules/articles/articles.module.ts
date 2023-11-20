@@ -7,6 +7,7 @@ import { ArticlesComponent } from './articles.component';
 import { ArticleContainerBoxComponent } from './article-container-box/article-container-box.component';
 import { ViewArticleComponent } from './view-article/view-article.component';
 import { ArticlesRoutingModule } from './articles-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ArticlesRoutingModule } from './articles-routing.module';
   imports: [
     CommonModule,
     ArticlesRoutingModule,
+    RouterModule,
     DisqusModule],
   providers: [
     MyDisqusService,

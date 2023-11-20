@@ -11,7 +11,7 @@
     <div [class.visible]="displayComponent" [class.hidden]="!displayComponent" [ngClass]="{'visible':displayComponent}"
       class="tw-w-full tw-flex hidden tw-h-full">
       <div class="tw-w-full tw-flex tw-items-center tw-gap-5 tw-justify-center tw-h-full">
-  
+
         <div class="card tw-w-96">
           <h2>Lo interesante en este artículo</h2>
           <p>
@@ -32,11 +32,10 @@
             historia. Déjanos diseñar juntos el hogar de tus sueños. ¡Comencemos a construir tu futuro hoy mismo! Solicita una cita
             y déjanos transformar tus ideas en espacios palpables.
           </p>
-          <a >
+          <a (click)="goCitas()">
             Solicita una cita...
           </a>
         </div>
       </div>
     </div>
   </div>
-  
