@@ -1,5 +1,5 @@
 <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-min-h-screen">
-  <div  class="carousel slide carousel-fade tw-w-full" data-bs-ride="carousel">
+  <div class="carousel slide carousel-fade tw-w-full" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="./assets/img/BAN 1.png" class="d-block w-100" alt="...">
@@ -21,9 +21,10 @@
     </button>
   </div>
 
-    <div class="tw-w-full">
-      <div  class="tw-w-full" *ngFor="let proyecto of proyectos">
-        <app-project-container-box  class="tw-w-full" [isLeftVisible]="getLeftVisible()" [proyecto]="proyecto"></app-project-container-box>
-      </div>
+  <div class="tw-w-full" *ngIf="!(isLoading|async)">
+    <div class="tw-w-full" *ngFor="let proyecto of proyectos">
+      <app-project-container-box class="tw-w-full" [isLeftVisible]="getLeftVisible()"
+        [proyecto]="proyecto"></app-project-container-box>
+    </div>
   </div>
 </div>

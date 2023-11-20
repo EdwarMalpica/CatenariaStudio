@@ -12,6 +12,7 @@ import { TerminosComponent } from './components/terminos/terminos.component';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
+import { CalendarModule } from 'primeng/calendar';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
         ReactiveFormsModule,
         MenubarModule,
         SharedModule,
-        FormsModule
+        FormsModule,
+        CalendarModule
     ]
 })
 export class CoreModule {}
