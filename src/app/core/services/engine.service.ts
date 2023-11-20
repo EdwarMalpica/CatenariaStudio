@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -78,11 +79,11 @@ export class EngineService implements OnDestroy {
          }
        );
   }
-
+  apiUrl = environment.apiUrl;
   public createScene(canvas: ElementRef<HTMLCanvasElement>, path: string) {
     this.http
       .post(
-        'http://localhost:8000/api/archivos/download',
+        this.apiUrl+'/api/archivos/download',
         {
           file: path,
         },
@@ -115,7 +116,7 @@ export class EngineService implements OnDestroy {
           this.scene.add(this.camera);
 
           this.light = new THREE.SpotLight();
-          this.light.position.set(-50, 50, 0);
+          this.light.position.set(-10, 10, 10);
           this.light.decay = 0;
           //Agregar sombras
           this.light.castShadow = true;
@@ -124,8 +125,11 @@ export class EngineService implements OnDestroy {
           this.light.penumbra = 0;
           this.light.intensity = 2;
           this.scene.add(this.light);
+          const light2 = new THREE.SpotLight(0xffffff, 0.5);
+          light2.position.set(10, 10, 20);
+          this.scene.add(light2);
 
-          this.camera.position.set(0, 1, 2);
+          this.camera.position.set(0, 1, 20);
           this.loader = new GLTFLoader();
           this.model = new THREE.Object3D();
           this.reader.readAsArrayBuffer(data);
