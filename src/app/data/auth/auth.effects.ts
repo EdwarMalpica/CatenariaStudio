@@ -25,8 +25,6 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType(loginStart),
       exhaustMap((action) => {
-        console.log('fui llamado dentro del effect');
-
         return this.apiService.post(URL_API_LOGIN, action.data).pipe(
           map((data: any) => {
             this.alerts.showSuccess('Inicio de Sesión Exitoso');

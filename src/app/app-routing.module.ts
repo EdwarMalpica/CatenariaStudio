@@ -25,6 +25,7 @@ const routes: Routes = [
   },
   {path: 'citas',loadChildren:()=>import('./modules/citas/citas.module').then((m)=>m.CitasModule)},
   {path:'projects',loadChildren:()=>import('./modules/proyects/proyects.module').then((m)=>m.ProyectsModule)},
+  {path:'articles',loadChildren:()=>import('./modules/articles/articles.module').then((m)=>m.ArticlesModule)},
   { path: 'verify_email', component: CheckMailComponent },
   { path: 'horarios', component: HorarioComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

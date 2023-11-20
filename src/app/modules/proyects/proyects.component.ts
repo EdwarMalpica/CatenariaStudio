@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api.service';
 import { AppState } from 'src/app/data/app.state';
 import { isLoading } from 'src/app/data/shared/shared.action';
+import { getIsLoading } from 'src/app/data/shared/shared.selector';
 import { AlertsService } from 'src/app/shared/services/alerts.service';
 
 @Component({
@@ -11,14 +13,20 @@ import { AlertsService } from 'src/app/shared/services/alerts.service';
   templateUrl: './proyects.component.html',
   styleUrls: ['./proyects.component.css'],
 })
-export class ProyectsComponent {
+export class ProyectsComponent implements  OnInit{
   proyectos: any[] = [];
   isLeftVisible: boolean = true;
+  isLoading:Observable<boolean>;
   constructor(private api: ApiService, private store: Store<AppState>, private router: Router,
     private alerts:AlertsService) {
     this.store.dispatch(isLoading({ isLoading: true }));
-    this.getProjects();
   }
+  ngOnInit(): void {
+    this.isLoading =this.store.select(getIsLoading);
+    this.getProjects();
+
+  }
+
   getLeftVisible() {
     this.isLeftVisible = !this.isLeftVisible;
     return this.isLeftVisible;
@@ -29,7 +37,7 @@ export class ProyectsComponent {
         this.proyectos = data.proyectos;
         setTimeout(() => {
         this.store.dispatch(isLoading({ isLoading: false }));
-        },1000);
+        },2000);
       },
       error: (error) => {
         this.store.dispatch(isLoading({ isLoading: false }));

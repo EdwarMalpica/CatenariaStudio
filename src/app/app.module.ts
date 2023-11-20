@@ -24,7 +24,6 @@ defineLocale('es', esLocale);
 import { FormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { RegistroUsuarioComponent } from './core/components/registro-usuario/registro-usuario.component';
 import { UserModule } from './components/user/user.module';
 
 
@@ -57,7 +56,6 @@ import { CitasModule } from './modules/citas/citas.module';
     EditProfileComponent,
     FooterComponent,
     CalendarComponent,
-    RegistroUsuarioComponent,
   ],
   imports: [
     CommonModule,
