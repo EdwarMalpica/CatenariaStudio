@@ -25,7 +25,7 @@ export class MisionComponent implements AfterViewInit {
 
   private adjustCanvasSize() {
     this.rendererCanvas.nativeElement.style.width = '100%';
-    this.engService.createScene(this.rendererCanvas, '');
+    this.engService.createSceneStatic(this.rendererCanvas);
     //this.engService.animate();
   }
 }

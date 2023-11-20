@@ -27,6 +27,58 @@ export class EngineService implements OnDestroy {
     }
   }
 
+  public createSceneStatic(canvas: ElementRef<HTMLCanvasElement>) {
+   this.canvas = canvas.nativeElement;
+   this.renderer = new THREE.WebGLRenderer({
+     canvas: this.canvas,
+     alpha: true,
+     antialias: true,
+   });
+   this.renderer.setSize(
+     canvas.nativeElement.width,
+     canvas.nativeElement.height
+   );
+   //Scena
+   this.scene = new THREE.Scene();
+   this.camera = new THREE.PerspectiveCamera(
+     75,
+     canvas.nativeElement.width / canvas.nativeElement.height,
+     0.1,
+     1000
+   );
+   this.orbit = new OrbitControls(this.camera, this.renderer.domElement);
+   this.orbit.update();
+   //Agregar el axesHelper a la escena
+   this.camera.position.z = 5;
+   this.scene.add(this.camera);
+
+   this.light = new THREE.SpotLight();
+   this.light.position.set(-50, 50, 0);
+   this.light.decay = 0;
+   //Agregar sombras
+   this.light.castShadow = true;
+   //Reducir angulo para mejorar sombras
+   this.light.angle = 0.4;
+   this.light.penumbra = 0;
+   this.light.intensity = 2;
+   this.scene.add(this.light);
+
+   this.camera.position.set(0, 10, 30);
+   this.loader = new GLTFLoader();
+       this.loader.load(
+         './assets/model/Hotel(3star).glb',
+         (gltf: any) => {
+           this.model = gltf.scene;
+           this.scene.add(this.model);
+           this.renderer.render(this.scene, this.camera);
+           this.loop();
+         },
+         function (error: any) {
+           console.error(error);
+         }
+       );
+  }
+
   public createScene(canvas: ElementRef<HTMLCanvasElement>, path: string) {
     this.http
       .post(
@@ -95,42 +147,9 @@ export class EngineService implements OnDestroy {
             }
           };
         },
-        // data.arrayBuffer().then((buffer) => {
-        //   this.loader.parse(
-        //     buffer,
-        //     '',
-        //     (gltf: any) => {
-        //       this.model = gltf.scene;
-        //       this.scene.add(this.model);
-        //       this.renderer.render(this.scene, this.camera);
-        //       this.loop();
-        //     },
-        //     function (error: any) {
-        //       console.error(error);
-        //     }
-        //   );
-        // });
-
-        // this.loader.load(
-        //   'http://localhost:8000/storage/proyecto/31/model/modelGirl.glb',
-        //   (gltf: any) => {
-        //     this.model = gltf.scene;
-        //     this.scene.add(this.model);
-        //     this.renderer.render(this.scene, this.camera);
-        //     this.loop();
-        //   },
-        //   undefined,
-        //   function (error: any) {
-        //     console.error(error);
-        //   }
-        // );
       });
-
-    //const geometry = new THREE.BoxGeometry(2,2,2);
-    //const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    //this.cube = new THREE.Mesh(geometry, material);
-    //this.scene.add(this.cube);
   }
+
   loop() {
     this.renderer.setAnimationLoop(() => {
       this.model.rotation.y += 0.01;
@@ -139,15 +158,6 @@ export class EngineService implements OnDestroy {
   }
 
   animate(time: number) {
-    // this.ngZone.runOutsideAngular( ()=>{
-    //   if(document.readyState === 'complete'){
-    //     this.renderModel();
-    //   }else{
-    //     window.addEventListener('DOMContentLoaded',()=>{
-    //       this.renderModel();
-    //     });
-    //   }
-    // });
     this.renderer.render(this.scene, this.camera);
   }
 
