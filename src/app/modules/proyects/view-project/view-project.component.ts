@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './view-project.component.html',
   styleUrls: ['./view-project.component.css'],
 })
-export class ViewProjectComponent implements OnInit {
+export class ViewProjectComponent implements OnInit, AfterViewInit {
   proyecto: any;
   img: any[] = [];
   id: string;
@@ -44,6 +44,9 @@ export class ViewProjectComponent implements OnInit {
     });
     this.apiUrl = environment.apiUrl;
   }
+  ngAfterViewInit(): void {
+
+  }
 
   getProyecto(id: any) {
     this.store.dispatch(isLoading({ isLoading: true }));
@@ -55,21 +58,15 @@ export class ViewProjectComponent implements OnInit {
       this.modelPath = this.proyecto.files.filter((file: any) =>
         this.contieneGLBorGLTF(file.formato)
       )[0].path;
+      const pathPublic = this.modelPath.replace('/storage/', '/public/');
+      this.ngse.createScene(this.canvasModel, pathPublic);
       this.store.dispatch(isLoading({ isLoading: false }));
     });
   }
 
-  setScene() {
-    this.ngse.createScene(this.canvasModel);
-  }
+ 
   ngOnInit(): void {
-    if (document.readyState === 'complete') {
-      this.ngse.createScene(this.canvasModel);
-    } else {
-      document.addEventListener('DOMContentLoaded', (event) => {
-        this.ngse.createScene(this.canvasModel);
-      });
-    }
+
   }
 
   cargarModelo() {
