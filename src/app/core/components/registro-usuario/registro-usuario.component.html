@@ -5,33 +5,33 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h2 class="text-center title">Registro de Usuario</h2>
-      <form>
+      <form [formGroup]="formulario">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="form-group space">
               <label for="nombre" class="subtitle">Nombre:</label>
-              <input type="text" id="nombre" class="form-control subtitle" [(ngModel)]="nombre" name="nombre"
-                placeholder="Nombre">
+              <input type="text"   id="nombre" class="form-control subtitle" formControlName="nombre"
+                placeholder="Nombre" >
             </div>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="form-group space">
               <label for="apellido" class="subtitle">Apellido:</label>
-              <input type="text" id="apellido" class="form-control  subtitle" [(ngModel)]="apellido" name="apellido"
+              <input type="text" id="apellido" class="form-control  subtitle" formControlName="apellido" name="apellido"
                 placeholder="Apellido">
             </div>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="form-group space">
               <label for="telefono" class="subtitle">Teléfono:</label>
-              <input type="tel" id="telefono" class="form-control  subtitle" [(ngModel)]="telefono" name="telefono"
+              <input type="tel" id="telefono" class="form-control  subtitle" formControlName="telefono" name="telefono"
                 placeholder="3000000000">
             </div>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="form-group space">
               <label for="email" class="subtitle">Email:</label>
-              <input type="email" id="email@mail.com" class="form-control subtitle" [(ngModel)]="email" name="email"
+              <input type="email" id="email@mail.com" class="form-control subtitle" formControlName="email" name="email"
                 placeholder="E-mail">
             </div>
           </div>
@@ -40,12 +40,12 @@
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="form-group space">
               <label for="fechaNacimiento" class="subtitle">Fecha de Nacimiento:</label>
-              <input type="date" id="fechaNacimiento" class="form-control subtitle " [(ngModel)]="fechaNacimiento"
+              <input type="date" id="fechaNacimiento" class="form-control subtitle " formControlName="fechaNacimiento"
                 name="16/16/1655">
             </div>
             <div class="form-group space">
               <label for="password" class="subtitle">Contraseña:</label>
-              <input type="password" id="password" class="form-control subtitle " [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+              <input type="password" id="password" class="form-control subtitle " formControlName="password"
                 >
             </div>
           </div>
@@ -54,7 +54,7 @@
           <div class="col-md-auto buttons">
             <div class="form-group">
               <label>
-                <input type="checkbox" [(ngModel)]="aceptarTerminos" name="aceptarTerminos"> Acepto los términos y condiciones y quiero
+                <input type="checkbox"  name="aceptarTerminos"> Acepto los términos y condiciones y quiero
                 <a [routerLink]="['/terminos-y-condiciones']">ver los detalles</a>.
               </label>
             </div>

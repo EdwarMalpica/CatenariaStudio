@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { User } from '../../../models/auth/user';
 import { Credential } from '../../../models/auth/credential';
 import { Route, Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
+import { URL_API_REGISTRY } from 'src/app/data/constants/constants';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // import { AuthActions } from '@angular./auth.actions'
 
@@ -21,8 +24,19 @@ export class RegistroUsuarioComponent {
   aceptarTerminos: boolean = false;
   username: string = '';
   password: string = '';
+  formulario: FormGroup;
 
-  constructor( private route: Router) {}
+  constructor( private route: Router,private fb: FormBuilder,private api: ApiService,private router:Router) {
+    this.formulario = this.fb.group({
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      telefono: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      fechaNacimiento: ['', Validators.required],
+      password: ['', Validators.required],
+      aceptarTerminos: [false, Validators.requiredTrue],
+    });
+  }
 
 
 
@@ -53,10 +67,34 @@ export class RegistroUsuarioComponent {
     }
   }
 
-  iniciarSesión() {
+  iniciarSesión() {}
 
-  }
 
   registrarUsuario() {
+    const data = {
+      nombre: this.formulario.get('nombre')!.value || '',
+      apellido: this.formulario.get('apellido')!.value || '',
+      telefono: this.formulario.get('telefono')!.value || '',
+      email: this.formulario.get('email')!.value || '',
+      password: this.formulario.get('password')!.value || '',
+    };
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(data));
+    console.log('DATA', JSON.stringify(data));
+    this.api.post(URL_API_REGISTRY, formData).subscribe(
+      (response) => {
+        alert('Usuario registrado correctamente');
+        this.router.navigate(['/home']);
+        // Handle any additional logic based on the response if needed
+      },
+      (error) => {
+        alert('Error al registrar el usuario');
+      },
+      () => {
+        console.log('Peticion finalizada');
+      }
+    );
   }
+
+
 }
